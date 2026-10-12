@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-request-reference-schema.json",
+  "title": "RequestReference",
+  "description": "A unique identifier for the request. Can be used match request with the response. If not provided by the user, a random UUID will be given in this response header.",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-estimate-openapi.yml#/components/schemas/RequestReference",
+  "type": "string",
+  "maximum": 40
+}

@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-modify-pickup-schema.json",
+  "title": "ModifyPickup",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-pickup-openapi.yml#/components/schemas/ModifyPickup",
+  "type": "object",
+  "properties": {
+    "registeredAccountNumber": {
+      "type": "string",
+      "description": "Purolator Business Account Number",
+      "maxLength": 10,
+      "minLength": 1
+    },
+    "pickupConfirmationNumber": {
+      "type": "string",
+      "description": "Shipment pickup confirmation number"
+    },
+    "pickupInstructions": {
+      "$ref": "#/$defs/ModifyPickupInstructions"
+    },
+    "shipmentSummary": {
+      "description": "In Modify pickup 'destinationCode' is not modifiable",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ModifyShipmentSummaryDetails"
+      }
+    }
+  },
+  "required": [
+    "registeredAccountNumber",
+    "pickupConfirmationNumber",
+    "pickupInstructions",
+    "shipmentSummary"
+  ],
+  "$defs": {
+    "ModifyPickupInstructions": {
+      "type": "object",
+      "properties": {
+        "untilTime": {
+          "type": "string",
+          "description": "Latest pickup time. Time format in 24-hour notation(HH:mm)"
+        },
+        "measurementUnit": {
+          "type": "string",
+          "description": "Unit of measure for weight.",
+          "enum": [
+            "imperial",
+            "metric"
+          ]
+        },
+        "pickupLocation": {
+          "type": "string",
+          "description": "Location for where to pickup the shipment. Case-insensitive.",
+          "enum": [
+            "BackDoor",
+            "Basement",
+            "BetweenDoors",
+            "Counter",
+            "Desk",
+            "FrontDesk",
+            "FrontDoor",
+            "FrontPorch",
+            "Garage",
+            "GateHouse",
+            "Kiosk",
+            "Lab",
+            "LoadingDock",
+            "Lobby",
+            "Mailbox",
+            "MailRoom",
+            "Office",
+            "OutsideDoor",
+            "PartsDepartment",
+            "Pharmacy",
+            "ProShop",
+            "Receiving",
+            "Reception",
+            "Security",
+            "ServiceCounter",
+            "Shipping",
+            "SideDoor",
+            "Switchboard",
+            "Vault",
+            "Warehouse"
+          ]
+        },
+        "additionalInstructions": {
+          "type": "string",
+          "description": "Additionial pickup instructions.",
+          "maxLength": 70
+        },
+        "supplyRequestCodes": {
+          "type": "array",
+          "description": "Request supplies with pickup. Case-insensitive.",
+          "enum": [
+            "1030AMStickers",
+            "9AMStickers",
+            "AirStickers",
+            "ExpressEnvelope",
+            "ExpressPack",
+            "HeavyWeightSticker",
+            "HoldforPUSticker",
+            "InternationalBillOfLading",
+            "Labelope",
+            "Manifest",
+            "RegularBillOfLading",
+            "SaturdayServiceSticker"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "pickupLocation",
+        "untilTime",
+        "measurementUnit"
+      ]
+    },
+    "ModifyShipmentSummaryDetails": {
+      "type": "object",
+      "properties": {
+        "destinationCode": {
+          "type": "string",
+          "description": "Shipment destination code. Case-insensitive.",
+          "enum": [
+            "DOM",
+            "INTL",
+            "USA"
+          ]
+        },
+        "totalPieces": {
+          "type": "integer",
+          "description": "Number of pieces for a shipment destination",
+          "minimum": 1,
+          "maximum": 9999
+        },
+        "totalWeight": {
+          "type": "number",
+          "description": ""
+        }
+      },
+      "required": [
+        "destinationCode",
+        "totalPieces",
+        "totalWeight"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1181 @@
+{
+  "@context": {
+    "@vocab": "https://purolator.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "purolator": "https://purolator.com/schema#",
+    "Language": "purolator:Language",
+    "LineOfBusiness": "purolator:LineOfBusiness",
+    "Error": "purolator:Error",
+    "code": {
+      "@id": "purolator:code",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "purolator:description",
+      "@type": "xsd:string"
+    },
+    "ErrorItem": "purolator:ErrorItem",
+    "error": {
+      "@id": "purolator:error",
+      "@type": "@id"
+    },
+    "ErrorResponse": "purolator:ErrorResponse",
+    "requestReference": {
+      "@id": "purolator:requestReference",
+      "@type": "@id"
+    },
+    "language": {
+      "@id": "purolator:language",
+      "@type": "xsd:string"
+    },
+    "bannerMessages": {
+      "@id": "purolator:bannerMessages",
+      "@container": "@list"
+    },
+    "errors": {
+      "@id": "purolator:errors",
+      "@container": "@list"
+    },
+    "CloseManifestRequest": "purolator:CloseManifestRequest",
+    "lineOfBusiness": {
+      "@id": "purolator:lineOfBusiness",
+      "@type": "@id"
+    },
+    "accountNumber": {
+      "@id": "purolator:accountNumber",
+      "@type": "xsd:string"
+    },
+    "CloseManifestResponse": "purolator:CloseManifestResponse",
+    "shipmentsConsolidated": {
+      "@id": "purolator:shipmentsConsolidated",
+      "@type": "xsd:string"
+    },
+    "bannerMessage": {
+      "@id": "purolator:bannerMessage",
+      "@type": "xsd:string"
+    },
+    "SenderInformation": "purolator:SenderInformation",
+    "companyName": {
+      "@id": "purolator:companyName",
+      "@type": "xsd:string"
+    },
+    "attentionTo": {
+      "@id": "purolator:attentionTo",
+      "@type": "xsd:string"
+    },
+    "streetAddress": {
+      "@id": "purolator:streetAddress",
+      "@container": "@list"
+    },
+    "city": {
+      "@id": "purolator:city",
+      "@type": "xsd:string"
+    },
+    "provinceStateCode": {
+      "@id": "purolator:provinceStateCode",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "purolator:country",
+      "@type": "xsd:string"
+    },
+    "postalZipCode": {
+      "@id": "purolator:postalZipCode",
+      "@type": "xsd:string"
+    },
+    "phoneNumber": {
+      "@id": "purolator:phoneNumber",
+      "@type": "xsd:string"
+    },
+    "ReceiverInformation": "purolator:ReceiverInformation",
+    "ReturnReceiverInformation": "purolator:ReturnReceiverInformation",
+    "ExpressChequeInformation": "purolator:ExpressChequeInformation",
+    "BuyerInformation": "purolator:BuyerInformation",
+    "ThirdPartyBillingInformation": "purolator:ThirdPartyBillingInformation",
+    "USOriginInformation": "purolator:USOriginInformation",
+    "PaymentInformation": "purolator:PaymentInformation",
+    "registeredAccountNumber": {
+      "@id": "purolator:registeredAccountNumber",
+      "@type": "xsd:string"
+    },
+    "billingAccountNumber": {
+      "@id": "purolator:billingAccountNumber",
+      "@type": "xsd:string"
+    },
+    "paymentType": {
+      "@id": "purolator:paymentType",
+      "@type": "xsd:string"
+    },
+    "ShipmentOptionIdValuePair": "purolator:ShipmentOptionIdValuePair",
+    "optionId": {
+      "@id": "purolator:optionId",
+      "@type": "xsd:string"
+    },
+    "optionIdValue": {
+      "@id": "purolator:optionIdValue",
+      "@type": "xsd:string"
+    },
+    "PackageOptionIdValuePair": "purolator:PackageOptionIdValuePair",
+    "PackageInformation": "purolator:PackageInformation",
+    "packageWeight": {
+      "@id": "purolator:packageWeight",
+      "@type": "xsd:decimal"
+    },
+    "packageLength": {
+      "@id": "purolator:packageLength",
+      "@type": "xsd:decimal"
+    },
+    "packageWidth": {
+      "@id": "purolator:packageWidth",
+      "@type": "xsd:decimal"
+    },
+    "packageHeight": {
+      "@id": "purolator:packageHeight",
+      "@type": "xsd:decimal"
+    },
+    "packageReference1": {
+      "@id": "purolator:packageReference1",
+      "@type": "xsd:string"
+    },
+    "packageReference2": {
+      "@id": "purolator:packageReference2",
+      "@type": "xsd:string"
+    },
+    "packageReference3": {
+      "@id": "purolator:packageReference3",
+      "@type": "xsd:string"
+    },
+    "packageReference4": {
+      "@id": "purolator:packageReference4",
+      "@type": "xsd:string"
+    },
+    "packageReference5": {
+      "@id": "purolator:packageReference5",
+      "@type": "xsd:string"
+    },
+    "packageOptionsInformation": {
+      "@id": "purolator:packageOptionsInformation",
+      "@container": "@list"
+    },
+    "brokeragePackageNumber": {
+      "@id": "purolator:brokeragePackageNumber",
+      "@type": "xsd:string"
+    },
+    "CustomerReferenceInformation": "purolator:CustomerReferenceInformation",
+    "costCenter": {
+      "@id": "purolator:costCenter",
+      "@type": "xsd:string"
+    },
+    "notes": {
+      "@id": "purolator:notes",
+      "@type": "xsd:string"
+    },
+    "shipmentReference1": {
+      "@id": "purolator:shipmentReference1",
+      "@type": "xsd:string"
+    },
+    "shipmentReference2": {
+      "@id": "purolator:shipmentReference2",
+      "@type": "xsd:string"
+    },
+    "shipmentReference3": {
+      "@id": "purolator:shipmentReference3",
+      "@type": "xsd:string"
+    },
+    "shipmentReference4": {
+      "@id": "purolator:shipmentReference4",
+      "@type": "xsd:string"
+    },
+    "shipmentReference5": {
+      "@id": "purolator:shipmentReference5",
+      "@type": "xsd:string"
+    },
+    "costCenterReference": {
+      "@id": "purolator:costCenterReference",
+      "@type": "xsd:string"
+    },
+    "NotificationType": "purolator:NotificationType",
+    "notificationId": {
+      "@id": "purolator:notificationId",
+      "@type": "xsd:string"
+    },
+    "notificationMessage": {
+      "@id": "purolator:notificationMessage",
+      "@type": "xsd:string"
+    },
+    "Subscription": "purolator:Subscription",
+    "name": {
+      "@id": "purolator:name",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "purolator:email",
+      "@type": "xsd:string"
+    },
+    "notificationType": {
+      "@id": "purolator:notificationType",
+      "@type": "@id"
+    },
+    "Notifications": "purolator:Notifications",
+    "requestorName": {
+      "@id": "purolator:requestorName",
+      "@type": "xsd:string"
+    },
+    "requestorEmail": {
+      "@id": "purolator:requestorEmail",
+      "@type": "xsd:string"
+    },
+    "subscriptions": {
+      "@id": "purolator:subscriptions",
+      "@container": "@list"
+    },
+    "NonDocumentsInformation": "purolator:NonDocumentsInformation",
+    "taxesPaid": {
+      "@id": "purolator:taxesPaid",
+      "@type": "xsd:string"
+    },
+    "currencyForDutiableGoods": {
+      "@id": "purolator:currencyForDutiableGoods",
+      "@type": "xsd:string"
+    },
+    "importExportType": {
+      "@id": "purolator:importExportType",
+      "@type": "xsd:string"
+    },
+    "extraCharges": {
+      "@id": "purolator:extraCharges",
+      "@type": "xsd:integer"
+    },
+    "extraChargeCode": {
+      "@id": "purolator:extraChargeCode",
+      "@type": "xsd:string"
+    },
+    "specialInstructionFlag": {
+      "@id": "purolator:specialInstructionFlag",
+      "@type": "xsd:string"
+    },
+    "billDutiesToParty": {
+      "@id": "purolator:billDutiesToParty",
+      "@type": "xsd:string"
+    },
+    "businessRelationship": {
+      "@id": "purolator:businessRelationship",
+      "@type": "xsd:string"
+    },
+    "customsInvoiceDocumentIndicator": {
+      "@id": "purolator:customsInvoiceDocumentIndicator",
+      "@type": "xsd:boolean"
+    },
+    "brokerageReferenceNumber": {
+      "@id": "purolator:brokerageReferenceNumber",
+      "@type": "xsd:string"
+    },
+    "ContentDetails": "purolator:ContentDetails",
+    "harmonizedCode": {
+      "@id": "purolator:harmonizedCode",
+      "@type": "xsd:string"
+    },
+    "countryOfManufacture": {
+      "@id": "purolator:countryOfManufacture",
+      "@type": "xsd:string"
+    },
+    "unitValue": {
+      "@id": "purolator:unitValue",
+      "@type": "xsd:decimal"
+    },
+    "productCode": {
+      "@id": "purolator:productCode",
+      "@type": "xsd:string"
+    },
+    "quantity": {
+      "@id": "purolator:quantity",
+      "@type": "xsd:integer"
+    },
+    "unitOfMeasure": {
+      "@id": "purolator:unitOfMeasure",
+      "@type": "xsd:string"
+    },
+    "usmcaDocumentIndicator": {
+      "@id": "purolator:usmcaDocumentIndicator",
+      "@type": "xsd:boolean"
+    },
+    "fdaDocumentIndicator": {
+      "@id": "purolator:fdaDocumentIndicator",
+      "@type": "xsd:boolean"
+    },
+    "senderIsProducerIndicator": {
+      "@id": "purolator:senderIsProducerIndicator",
+      "@type": "xsd:boolean"
+    },
+    "textileIndicator": {
+      "@id": "purolator:textileIndicator",
+      "@type": "xsd:boolean"
+    },
+    "textileManufacturer": {
+      "@id": "purolator:textileManufacturer",
+      "@type": "xsd:string"
+    },
+    "manufacturersFDARegistrationNumber": {
+      "@id": "purolator:manufacturersFDARegistrationNumber",
+      "@type": "xsd:string"
+    },
+    "shippersFDARegistrationNumber": {
+      "@id": "purolator:shippersFDARegistrationNumber",
+      "@type": "xsd:string"
+    },
+    "priorNoticeConfirmationNumber": {
+      "@id": "purolator:priorNoticeConfirmationNumber",
+      "@type": "xsd:string"
+    },
+    "netWeight": {
+      "@id": "purolator:netWeight",
+      "@type": "xsd:decimal"
+    },
+    "CrossBorderInformation": "purolator:CrossBorderInformation",
+    "documentsOnlyIndicator": {
+      "@id": "purolator:documentsOnlyIndicator",
+      "@type": "xsd:boolean"
+    },
+    "currency": {
+      "@id": "purolator:currency",
+      "@type": "xsd:string"
+    },
+    "nonDocumentsInformation": {
+      "@id": "purolator:nonDocumentsInformation",
+      "@type": "@id"
+    },
+    "contentDetails": {
+      "@id": "purolator:contentDetails",
+      "@container": "@list"
+    },
+    "Label": "purolator:Label",
+    "outputType": {
+      "@id": "purolator:outputType",
+      "@type": "xsd:string"
+    },
+    "printerFormat": {
+      "@id": "purolator:printerFormat",
+      "@type": "xsd:string"
+    },
+    "responseType": {
+      "@id": "purolator:responseType",
+      "@type": "xsd:string"
+    },
+    "ShipmentDocuments": "purolator:ShipmentDocuments",
+    "label": {
+      "@id": "purolator:label",
+      "@type": "@id"
+    },
+    "ShipmentInformation": "purolator:ShipmentInformation",
+    "serviceId": {
+      "@id": "purolator:serviceId",
+      "@type": "xsd:string"
+    },
+    "unitOfMeasurement": {
+      "@id": "purolator:unitOfMeasurement",
+      "@type": "xsd:string"
+    },
+    "descriptionOfGoods": {
+      "@id": "purolator:descriptionOfGoods",
+      "@type": "xsd:string"
+    },
+    "totalWeight": {
+      "@id": "purolator:totalWeight",
+      "@type": "xsd:decimal"
+    },
+    "totalPackages": {
+      "@id": "purolator:totalPackages",
+      "@type": "xsd:integer"
+    },
+    "dangerousGoodsDeclarationDocumentIndicator": {
+      "@id": "purolator:dangerousGoodsDeclarationDocumentIndicator",
+      "@type": "xsd:boolean"
+    },
+    "declaredValue": {
+      "@id": "purolator:declaredValue",
+      "@type": "xsd:decimal"
+    },
+    "internationalOrderNumber": {
+      "@id": "purolator:internationalOrderNumber",
+      "@type": "xsd:string"
+    },
+    "codAmount": {
+      "@id": "purolator:codAmount",
+      "@type": "xsd:decimal"
+    },
+    "specialInstructions": {
+      "@id": "purolator:specialInstructions",
+      "@type": "xsd:string"
+    },
+    "shipmentOptionsInformation": {
+      "@id": "purolator:shipmentOptionsInformation",
+      "@container": "@list"
+    },
+    "packageInformation": {
+      "@id": "purolator:packageInformation",
+      "@container": "@list"
+    },
+    "OutboundShipment": "purolator:OutboundShipment",
+    "paymentInformation": {
+      "@id": "purolator:paymentInformation",
+      "@type": "@id"
+    },
+    "pickupType": {
+      "@id": "purolator:pickupType",
+      "@type": "xsd:string"
+    },
+    "senderInformation": {
+      "@id": "purolator:senderInformation",
+      "@type": "@id"
+    },
+    "receiverInformation": {
+      "@id": "purolator:receiverInformation",
+      "@type": "@id"
+    },
+    "usOriginInformation": {
+      "@id": "purolator:usOriginInformation",
+      "@type": "@id"
+    },
+    "fromOnLabelInformation": {
+      "@id": "purolator:fromOnLabelInformation",
+      "@type": "@id"
+    },
+    "expressChequeInformation": {
+      "@id": "purolator:expressChequeInformation",
+      "@type": "@id"
+    },
+    "buyerInformation": {
+      "@id": "purolator:buyerInformation",
+      "@type": "@id"
+    },
+    "brokerageVendorAddress": {
+      "@id": "purolator:brokerageVendorAddress",
+      "@type": "@id"
+    },
+    "brokerageExporterAddress": {
+      "@id": "purolator:brokerageExporterAddress",
+      "@type": "@id"
+    },
+    "thirdPartyBillingInformation": {
+      "@id": "purolator:thirdPartyBillingInformation",
+      "@type": "@id"
+    },
+    "shipmentInformation": {
+      "@id": "purolator:shipmentInformation",
+      "@type": "@id"
+    },
+    "customerReferenceInformation": {
+      "@id": "purolator:customerReferenceInformation",
+      "@type": "@id"
+    },
+    "notifications": {
+      "@id": "purolator:notifications",
+      "@type": "@id"
+    },
+    "crossBorderInformation": {
+      "@id": "purolator:crossBorderInformation",
+      "@type": "@id"
+    },
+    "ReturnShipment": "purolator:ReturnShipment",
+    "numberOfReturnShipments": {
+      "@id": "purolator:numberOfReturnShipments",
+      "@type": "xsd:integer"
+    },
+    "CreateShipmentRequest": "purolator:CreateShipmentRequest",
+    "shipmentDate": {
+      "@id": "purolator:shipmentDate",
+      "@type": "@id"
+    },
+    "returnsManagement": {
+      "@id": "purolator:returnsManagement",
+      "@type": "xsd:boolean"
+    },
+    "rma": {
+      "@id": "purolator:rma",
+      "@type": "xsd:string"
+    },
+    "validateOnly": {
+      "@id": "purolator:validateOnly",
+      "@type": "xsd:boolean"
+    },
+    "returnRates": {
+      "@id": "purolator:returnRates",
+      "@type": "xsd:boolean"
+    },
+    "shipmentDocuments": {
+      "@id": "purolator:shipmentDocuments",
+      "@type": "@id"
+    },
+    "outboundShipment": {
+      "@id": "purolator:outboundShipment",
+      "@type": "@id"
+    },
+    "returnShipment": {
+      "@id": "purolator:returnShipment",
+      "@type": "@id"
+    },
+    "ShipmentDetails": "purolator:ShipmentDetails",
+    "shipmentPIN": {
+      "@id": "purolator:shipmentPIN",
+      "@type": "xsd:string"
+    },
+    "packagePINs": {
+      "@id": "purolator:packagePINs",
+      "@container": "@list"
+    },
+    "returnShipmentPIN": {
+      "@id": "purolator:returnShipmentPIN",
+      "@container": "@list"
+    },
+    "expressChequePIN": {
+      "@id": "purolator:expressChequePIN",
+      "@type": "xsd:string"
+    },
+    "brokeragePackageNumbers": {
+      "@id": "purolator:brokeragePackageNumbers",
+      "@container": "@list"
+    },
+    "DocumentEntry": "purolator:DocumentEntry",
+    "packagePIN": {
+      "@id": "purolator:packagePIN",
+      "@type": "xsd:string"
+    },
+    "documentType": {
+      "@id": "purolator:documentType",
+      "@type": "xsd:string"
+    },
+    "documentStatus": {
+      "@id": "purolator:documentStatus",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "purolator:url",
+      "@type": "@id"
+    },
+    "data": {
+      "@id": "purolator:data",
+      "@type": "xsd:string"
+    },
+    "code128Value": {
+      "@id": "purolator:code128Value",
+      "@type": "xsd:string"
+    },
+    "ShipmentDocumentGroup": "purolator:ShipmentDocumentGroup",
+    "documents": {
+      "@id": "purolator:documents",
+      "@container": "@list"
+    },
+    "Surcharge": "purolator:Surcharge",
+    "surcharge": {
+      "@id": "purolator:surcharge"
+    },
+    "Tax": "purolator:Tax",
+    "tax": {
+      "@id": "purolator:tax"
+    },
+    "OptionPrice": "purolator:OptionPrice",
+    "option": {
+      "@id": "purolator:option"
+    },
+    "ShipmentEstimate": "purolator:ShipmentEstimate",
+    "expectedDeliveryDate": {
+      "@id": "purolator:expectedDeliveryDate",
+      "@type": "xsd:date"
+    },
+    "estimatedTransitDays": {
+      "@id": "purolator:estimatedTransitDays",
+      "@type": "xsd:integer"
+    },
+    "basePrice": {
+      "@id": "purolator:basePrice",
+      "@type": "xsd:decimal"
+    },
+    "surcharges": {
+      "@id": "purolator:surcharges",
+      "@container": "@list"
+    },
+    "optionPrices": {
+      "@id": "purolator:optionPrices",
+      "@container": "@list"
+    },
+    "subTotal": {
+      "@id": "purolator:subTotal",
+      "@type": "xsd:decimal"
+    },
+    "taxes": {
+      "@id": "purolator:taxes",
+      "@container": "@list"
+    },
+    "totalPrice": {
+      "@id": "purolator:totalPrice",
+      "@type": "xsd:decimal"
+    },
+    "ShipmentEstimateWrapper": "purolator:ShipmentEstimateWrapper",
+    "shipmentEstimate": {
+      "@id": "purolator:shipmentEstimate",
+      "@type": "@id"
+    },
+    "CreateShipmentResponse": "purolator:CreateShipmentResponse",
+    "validShipment": {
+      "@id": "purolator:validShipment",
+      "@type": "xsd:boolean"
+    },
+    "shipmentDetails": {
+      "@id": "purolator:shipmentDetails",
+      "@type": "@id"
+    },
+    "outboundShipmentEstimates": {
+      "@id": "purolator:outboundShipmentEstimates",
+      "@container": "@list"
+    },
+    "returnShipmentEstimates": {
+      "@id": "purolator:returnShipmentEstimates",
+      "@container": "@list"
+    },
+    "VoidShipmentRequest": "purolator:VoidShipmentRequest",
+    "VoidShipmentResponse": "purolator:VoidShipmentResponse",
+    "shipmentVoided": {
+      "@id": "purolator:shipmentVoided",
+      "@type": "xsd:string"
+    },
+    "EstimateRequest": "purolator:EstimateRequest",
+    "OutboundShipmentBase": "purolator:OutboundShipmentBase",
+    "billingInformation": {
+      "@id": "purolator:billingInformation",
+      "@type": "@id"
+    },
+    "BillingInformation": "purolator:BillingInformation",
+    "displayPublishedRates": {
+      "@id": "purolator:displayPublishedRates",
+      "@type": "xsd:boolean"
+    },
+    "SenderAddress": "purolator:SenderAddress",
+    "ReceiverAddress": "purolator:ReceiverAddress",
+    "AddressLine": "purolator:AddressLine",
+    "Address": {
+      "@id": "purolator:Address",
+      "@type": "xsd:string"
+    },
+    "PackageInformationDateUOMBase": "purolator:PackageInformationDateUOMBase",
+    "PackageInformationSpecialInstructionsBase": "purolator:PackageInformationSpecialInstructionsBase",
+    "TrackingReferenceInformation": "purolator:TrackingReferenceInformation",
+    "reference1": {
+      "@id": "purolator:reference1",
+      "@type": "@id"
+    },
+    "reference2": {
+      "@id": "purolator:reference2",
+      "@type": "@id"
+    },
+    "reference3": {
+      "@id": "purolator:reference3",
+      "@type": "@id"
+    },
+    "reference4": {
+      "@id": "purolator:reference4",
+      "@type": "@id"
+    },
+    "reference5": {
+      "@id": "purolator:reference5",
+      "@type": "@id"
+    },
+    "CourierServiceId": "purolator:CourierServiceId",
+    "ReturnCourierServiceId": "purolator:ReturnCourierServiceId",
+    "FreightServiceId": "purolator:FreightServiceId",
+    "OptionIdValuePair": "purolator:OptionIdValuePair",
+    "ReturnOptionIdValuePair": "purolator:ReturnOptionIdValuePair",
+    "PieceOptionIdValuePair": "purolator:PieceOptionIdValuePair",
+    "Piece": "purolator:Piece",
+    "LineItemBase": "purolator:LineItemBase",
+    "lineItem": {
+      "@id": "purolator:lineItem",
+      "@type": "xsd:integer"
+    },
+    "pieces": {
+      "@id": "purolator:pieces",
+      "@type": "xsd:integer"
+    },
+    "handlingUnit": {
+      "@id": "purolator:handlingUnit",
+      "@type": "xsd:integer"
+    },
+    "handlingUnitType": {
+      "@id": "purolator:handlingUnitType",
+      "@type": "xsd:string"
+    },
+    "freightClass": {
+      "@id": "purolator:freightClass",
+      "@type": "xsd:string"
+    },
+    "LineItemRequestMeasurements": "purolator:LineItemRequestMeasurements",
+    "weight": {
+      "@id": "purolator:weight",
+      "@type": "xsd:decimal"
+    },
+    "length": {
+      "@id": "purolator:length",
+      "@type": "xsd:decimal"
+    },
+    "width": {
+      "@id": "purolator:width",
+      "@type": "xsd:decimal"
+    },
+    "height": {
+      "@id": "purolator:height",
+      "@type": "xsd:decimal"
+    },
+    "BoolValuePair": "purolator:BoolValuePair",
+    "keyword": {
+      "@id": "purolator:keyword",
+      "@type": "xsd:string"
+    },
+    "keywordValue": {
+      "@id": "purolator:keywordValue",
+      "@type": "xsd:boolean"
+    },
+    "CourierEstimateResponse": "purolator:CourierEstimateResponse",
+    "FreightEstimateResponse": "purolator:FreightEstimateResponse",
+    "FreightOutboundShipmentEstimate": "purolator:FreightOutboundShipmentEstimate",
+    "CourierOutboundShipmentEstimate": "purolator:CourierOutboundShipmentEstimate",
+    "CourierReturnShipmentEstimate": "purolator:CourierReturnShipmentEstimate",
+    "ShipmentEstimateDaysBase": "purolator:ShipmentEstimateDaysBase",
+    "ShipmentEstimatePriceBase": "purolator:ShipmentEstimatePriceBase",
+    "LineItemResponseMeasurements": "purolator:LineItemResponseMeasurements",
+    "AccessorialItem": "purolator:AccessorialItem",
+    "charge": {
+      "@id": "purolator:charge",
+      "@type": "xsd:decimal"
+    },
+    "BaseResponse": "purolator:BaseResponse",
+    "DocumentCriteria": "purolator:DocumentCriteria",
+    "GetDocumentsRequest": "purolator:GetDocumentsRequest",
+    "documentCriteria": {
+      "@id": "purolator:documentCriteria",
+      "@container": "@list"
+    },
+    "GetDocumentsResponse": "purolator:GetDocumentsResponse",
+    "GetSummaryManifestRequest": "purolator:GetSummaryManifestRequest",
+    "manifestDate": {
+      "@id": "purolator:manifestDate",
+      "@container": "@list"
+    },
+    "ManifestBatchDetail": "purolator:ManifestBatchDetail",
+    "ManifestBatch": "purolator:ManifestBatch",
+    "shipmentManifestDateTime": {
+      "@id": "purolator:shipmentManifestDateTime",
+      "@type": "xsd:string"
+    },
+    "manifestCloseDateTime": {
+      "@id": "purolator:manifestCloseDateTime",
+      "@type": "xsd:string"
+    },
+    "manifestBatchDetail": {
+      "@id": "purolator:manifestBatchDetail",
+      "@container": "@list"
+    },
+    "GetSummaryManifestResponse": "purolator:GetSummaryManifestResponse",
+    "manifestBatch": {
+      "@id": "purolator:manifestBatch",
+      "@container": "@list"
+    },
+    "PickupInstructions": "purolator:PickupInstructions",
+    "date": {
+      "@id": "purolator:date",
+      "@type": "xsd:string"
+    },
+    "anyTimeAfter": {
+      "@id": "purolator:anyTimeAfter",
+      "@type": "xsd:string"
+    },
+    "untilTime": {
+      "@id": "purolator:untilTime",
+      "@type": "xsd:string"
+    },
+    "measurementUnit": {
+      "@id": "purolator:measurementUnit",
+      "@type": "xsd:string"
+    },
+    "pickupLocation": {
+      "@id": "purolator:pickupLocation",
+      "@type": "xsd:string"
+    },
+    "additionalInstructions": {
+      "@id": "purolator:additionalInstructions",
+      "@type": "xsd:string"
+    },
+    "supplyRequestCodes": {
+      "@id": "purolator:supplyRequestCodes",
+      "@container": "@list"
+    },
+    "trailerAccessible": {
+      "@id": "purolator:trailerAccessible",
+      "@type": "xsd:boolean"
+    },
+    "loadingDockAvailable": {
+      "@id": "purolator:loadingDockAvailable",
+      "@type": "xsd:boolean"
+    },
+    "shipmentOnSkids": {
+      "@id": "purolator:shipmentOnSkids",
+      "@type": "xsd:boolean"
+    },
+    "numberOfSkids": {
+      "@id": "purolator:numberOfSkids",
+      "@type": "xsd:integer"
+    },
+    "PickupAddress": "purolator:PickupAddress",
+    "address": {
+      "@id": "purolator:address",
+      "@container": "@list"
+    },
+    "province": {
+      "@id": "purolator:province",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "purolator:postalCode",
+      "@type": "xsd:string"
+    },
+    "ShipmentSummaryDetails": "purolator:ShipmentSummaryDetails",
+    "destinationCode": {
+      "@id": "purolator:destinationCode",
+      "@type": "xsd:string"
+    },
+    "totalPieces": {
+      "@id": "purolator:totalPieces",
+      "@type": "xsd:integer"
+    },
+    "modeOfTransport": {
+      "@id": "purolator:modeOfTransport",
+      "@type": "xsd:string"
+    },
+    "ContactInformation": "purolator:ContactInformation",
+    "company": {
+      "@id": "purolator:company",
+      "@type": "xsd:string"
+    },
+    "phoneExtension": {
+      "@id": "purolator:phoneExtension",
+      "@type": "xsd:string"
+    },
+    "LineItem": "purolator:LineItem",
+    "lineNumber": {
+      "@id": "purolator:lineNumber",
+      "@type": "xsd:integer"
+    },
+    "Freight": "purolator:Freight",
+    "paymentInfo": {
+      "@id": "purolator:paymentInfo",
+      "@type": "@id"
+    },
+    "accessorialParameters": {
+      "@id": "purolator:accessorialParameters",
+      "@container": "@list"
+    },
+    "pickUpOptions": {
+      "@id": "purolator:pickUpOptions",
+      "@type": "xsd:string"
+    },
+    "lineItemDetails": {
+      "@id": "purolator:lineItemDetails",
+      "@container": "@list"
+    },
+    "customerReferences": {
+      "@id": "purolator:customerReferences",
+      "@container": "@list"
+    },
+    "PickupCourier": "purolator:PickupCourier",
+    "pickupInstructions": {
+      "@id": "purolator:pickupInstructions",
+      "@type": "@id"
+    },
+    "pickupAddress": {
+      "@id": "purolator:pickupAddress",
+      "@type": "@id"
+    },
+    "shipmentSummary": {
+      "@id": "purolator:shipmentSummary",
+      "@container": "@list"
+    },
+    "contactInfo": {
+      "@id": "purolator:contactInfo",
+      "@type": "@id"
+    },
+    "pickupNotificationEmail": {
+      "@id": "purolator:pickupNotificationEmail",
+      "@type": "xsd:string"
+    },
+    "ApiResponse": "purolator:ApiResponse",
+    "pickupConfirmationNumber": {
+      "@id": "purolator:pickupConfirmationNumber",
+      "@type": "xsd:string"
+    },
+    "VoidPickupResponse": "purolator:VoidPickupResponse",
+    "pickupVoided": {
+      "@id": "purolator:pickupVoided",
+      "@type": "xsd:boolean"
+    },
+    "ModifyShipmentSummaryDetails": "purolator:ModifyShipmentSummaryDetails",
+    "ModifyPickup": "purolator:ModifyPickup",
+    "HistoryApiResponse": "purolator:HistoryApiResponse",
+    "pickupDetails": {
+      "@id": "purolator:pickupDetails",
+      "@container": "@list"
+    },
+    "GetHistoryRequest": "purolator:GetHistoryRequest",
+    "fromDate": {
+      "@id": "purolator:fromDate",
+      "@type": "xsd:string"
+    },
+    "toDate": {
+      "@id": "purolator:toDate",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "purolator:status",
+      "@type": "xsd:string"
+    },
+    "ModifyPickupInstructions": "purolator:ModifyPickupInstructions",
+    "GetBaseResponse": "purolator:GetBaseResponse",
+    "pickupStatus": {
+      "@id": "purolator:pickupStatus",
+      "@type": "xsd:string"
+    },
+    "voidRequest": "purolator:voidRequest",
+    "BadRequestResponse": "purolator:BadRequestResponse",
+    "ForbiddenResponse": "purolator:ForbiddenResponse",
+    "message": {
+      "@id": "purolator:message",
+      "@type": "xsd:string"
+    },
+    "InternalServerError": "purolator:InternalServerError",
+    "authentication200": "purolator:authentication200",
+    "token_type": {
+      "@id": "purolator:token_type",
+      "@type": "xsd:string"
+    },
+    "expires_in": {
+      "@id": "purolator:expires_in",
+      "@type": "xsd:integer"
+    },
+    "access_token": {
+      "@id": "purolator:access_token",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "purolator:scope",
+      "@type": "xsd:string"
+    },
+    "IncorrectUsername": "purolator:IncorrectUsername",
+    "errorCode": {
+      "@id": "purolator:errorCode",
+      "@type": "xsd:string"
+    },
+    "errorSummary": {
+      "@id": "purolator:errorSummary",
+      "@type": "xsd:string"
+    },
+    "errorLink": {
+      "@id": "purolator:errorLink",
+      "@type": "xsd:string"
+    },
+    "errorId": {
+      "@id": "purolator:errorId",
+      "@type": "xsd:string"
+    },
+    "errorCauses": {
+      "@id": "purolator:errorCauses",
+      "@container": "@list"
+    },
+    "IncorrectPassword": "purolator:IncorrectPassword",
+    "error_description": {
+      "@id": "purolator:error_description",
+      "@type": "xsd:string"
+    },
+    "MissingGrantType": "purolator:MissingGrantType",
+    "IncorrectGrantType": "purolator:IncorrectGrantType",
+    "MissingScope": "purolator:MissingScope",
+    "IncorrectScope": "purolator:IncorrectScope",
+    "AuthorizationIDInvalid": "purolator:AuthorizationIDInvalid",
+    "AuthorizationIDMissing": "purolator:AuthorizationIDMissing",
+    "General400Error": "purolator:General400Error",
+    "CodeDesc": "purolator:CodeDesc",
+    "CodeSubCodeDesc": "purolator:CodeSubCodeDesc",
+    "packageCodeSubCodeDesc": "purolator:packageCodeSubCodeDesc",
+    "subCode": {
+      "@id": "purolator:subCode",
+      "@type": "xsd:string"
+    },
+    "subDescription": {
+      "@id": "purolator:subDescription",
+      "@type": "xsd:string"
+    },
+    "DeliveryDetails": "purolator:DeliveryDetails",
+    "deliveryDateTime": {
+      "@id": "purolator:deliveryDateTime",
+      "@type": "xsd:dateTime"
+    },
+    "image": {
+      "@id": "purolator:image",
+      "@type": "xsd:string"
+    },
+    "locationCode": {
+      "@id": "purolator:locationCode",
+      "@type": "xsd:string"
+    },
+    "locationDescription": {
+      "@id": "purolator:locationDescription",
+      "@type": "xsd:string"
+    },
+    "Event": "purolator:Event",
+    "dateTime": {
+      "@id": "purolator:dateTime",
+      "@type": "xsd:dateTime"
+    },
+    "reasonCode": {
+      "@id": "purolator:reasonCode",
+      "@type": "xsd:string"
+    },
+    "terminal": {
+      "@id": "purolator:terminal",
+      "@type": "xsd:string"
+    },
+    "routeId": {
+      "@id": "purolator:routeId",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "purolator:location",
+      "@type": "@id"
+    },
+    "x12": {
+      "@id": "purolator:x12",
+      "@type": "@id"
+    },
+    "xreference": {
+      "@id": "purolator:xreference",
+      "@type": "xsd:string"
+    },
+    "ExternalEvent": "purolator:ExternalEvent",
+    "AT701": {
+      "@id": "purolator:AT701",
+      "@type": "xsd:string"
+    },
+    "AT702": {
+      "@id": "purolator:AT702",
+      "@type": "xsd:string"
+    },
+    "Location": "purolator:Location",
+    "streetaddress1": {
+      "@id": "purolator:streetaddress1",
+      "@type": "xsd:string"
+    },
+    "streetaddress2": {
+      "@id": "purolator:streetaddress2",
+      "@type": "xsd:string"
+    },
+    "provinceState": {
+      "@id": "purolator:provinceState",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "purolator:countryCode",
+      "@type": "xsd:string"
+    },
+    "Package": "purolator:Package",
+    "id": {
+      "@id": "purolator:id",
+      "@type": "xsd:integer"
+    },
+    "pin": {
+      "@id": "purolator:pin",
+      "@type": "xsd:string"
+    },
+    "estimatedDeliveryDate": {
+      "@id": "purolator:estimatedDeliveryDate",
+      "@type": "xsd:date"
+    },
+    "transitDays": {
+      "@id": "purolator:transitDays",
+      "@type": "xsd:integer"
+    },
+    "packageCreated": {
+      "@id": "purolator:packageCreated",
+      "@type": "xsd:date"
+    },
+    "packageReceived": {
+      "@id": "purolator:packageReceived",
+      "@type": "xsd:dateTime"
+    },
+    "lastEvent": {
+      "@id": "purolator:lastEvent",
+      "@type": "@id"
+    },
+    "details": {
+      "@id": "purolator:details",
+      "@type": "@id"
+    },
+    "events": {
+      "@id": "purolator:events",
+      "@container": "@list"
+    },
+    "NameValue": "purolator:NameValue",
+    "value": {
+      "@id": "purolator:value",
+      "@type": "xsd:string"
+    },
+    "OnlineTrackingResponse": "purolator:OnlineTrackingResponse",
+    "searchResult": {
+      "@id": "purolator:searchResult",
+      "@container": "@list"
+    },
+    "PackageDetails": "purolator:PackageDetails",
+    "references": {
+      "@id": "purolator:references",
+      "@container": "@list"
+    },
+    "services": {
+      "@id": "purolator:services",
+      "@container": "@list"
+    },
+    "holdForPickupLocationId": {
+      "@id": "purolator:holdForPickupLocationId",
+      "@type": "xsd:string"
+    },
+    "deliveryDetails": {
+      "@id": "purolator:deliveryDetails",
+      "@type": "@id"
+    },
+    "Receiver": "purolator:Receiver",
+    "streetAddress1": {
+      "@id": "purolator:streetAddress1",
+      "@type": "xsd:string"
+    },
+    "streetAddress2": {
+      "@id": "purolator:streetAddress2",
+      "@type": "xsd:string"
+    },
+    "streetAddress3": {
+      "@id": "purolator:streetAddress3",
+      "@type": "xsd:string"
+    },
+    "postalzipcode": {
+      "@id": "purolator:postalzipcode",
+      "@type": "xsd:string"
+    },
+    "SearchResult": "purolator:SearchResult"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Purolator API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Purolator's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-13) from openapi/purolator-close-manifest-openapi.yml, openapi/purolator-create-void-shipment-openapi.yml, openapi/purolator-estimate-openapi.yml.",
+  "dcterms:created": "2026-10-13",
+  "dcterms:source": [
+    "openapi/purolator-close-manifest-openapi.yml",
+    "openapi/purolator-create-void-shipment-openapi.yml",
+    "openapi/purolator-estimate-openapi.yml",
+    "openapi/purolator-get-documents-openapi.yml",
+    "openapi/purolator-get-summary-manifest-openapi.yml"
+  ]
+}

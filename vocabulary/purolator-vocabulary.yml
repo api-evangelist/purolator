@@ -1,0 +1,432 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/purolator-close-manifest-openapi.yml
+- openapi/purolator-create-void-shipment-openapi.yml
+- openapi/purolator-estimate-openapi.yml
+- openapi/purolator-get-documents-openapi.yml
+- openapi/purolator-get-summary-manifest-openapi.yml
+vocabulary:
+  name: Purolator Domain Vocabulary
+  description: 'Terms declared by Purolator''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-13'
+  terms:
+  - term: Close Manifest
+    definition: Close manifest endpoint
+    tags:
+    - Resource Group
+    source: openapi/purolator-close-manifest-openapi.yml
+  - term: Create Shipment
+    definition: Create shipment endpoint
+    tags:
+    - Resource Group
+    source: openapi/purolator-create-void-shipment-openapi.yml
+  - term: Void Shipment
+    definition: Void shipment endpoint
+    tags:
+    - Resource Group
+    source: openapi/purolator-create-void-shipment-openapi.yml
+  - term: Estimate
+    definition: Estimate endpoint
+    tags:
+    - Resource Group
+    source: openapi/purolator-estimate-openapi.yml
+  - term: Get Documents
+    definition: Get documents endpoint
+    tags:
+    - Resource Group
+    source: openapi/purolator-get-documents-openapi.yml
+  - term: Get Summary Manifest
+    definition: Get summary manifest endpoint
+    tags:
+    - Resource Group
+    source: openapi/purolator-get-summary-manifest-openapi.yml
+  - term: pickup
+    definition: Pickup endpoitns
+    tags:
+    - Resource Group
+    source: openapi/purolator-pickup-openapi.yml
+  - term: Language
+    definition: Response language. Case-insensitive. If not provided, defaults to EN (English).
+    tags:
+    - Enumeration
+    source: openapi/purolator-close-manifest-openapi.yml#/components/schemas/Language
+  - term: RequestReference
+    definition: A unique identifier for the request. Can be used to match request with the response. If not provided, a random UUID is generated.
+    tags:
+    - Object
+    source: openapi/purolator-close-manifest-openapi.yml#/components/schemas/RequestReference
+  - term: LineOfBusiness
+    definition: Line of business. Case-insensitive. Only Courier is supported.
+    tags:
+    - Enumeration
+    source: openapi/purolator-close-manifest-openapi.yml#/components/schemas/LineOfBusiness
+  - term: Error
+    definition: 'Object declared by the contract with fields: code, description.'
+    tags:
+    - Object
+    source: openapi/purolator-close-manifest-openapi.yml#/components/schemas/Error
+  - term: ErrorItem
+    definition: 'Object declared by the contract with fields: error.'
+    tags:
+    - Object
+    source: openapi/purolator-close-manifest-openapi.yml#/components/schemas/ErrorItem
+  - term: ErrorResponse
+    definition: 'Object declared by the contract with fields: requestReference, language, bannerMessages, errors.'
+    tags:
+    - Object
+    source: openapi/purolator-close-manifest-openapi.yml#/components/schemas/ErrorResponse
+  - term: CloseManifestRequest
+    definition: 'Object declared by the contract with fields: lineOfBusiness, accountNumber, requestReference, language.'
+    tags:
+    - Object
+    source: openapi/purolator-close-manifest-openapi.yml#/components/schemas/CloseManifestRequest
+  - term: CloseManifestResponse
+    definition: 'Object declared by the contract with fields: language, requestReference, shipmentsConsolidated, bannerMessage, errors.'
+    tags:
+    - Object
+    source: openapi/purolator-close-manifest-openapi.yml#/components/schemas/CloseManifestResponse
+  - term: ShipmentDate
+    definition: 'Date of shipment. Up to 10 days in advance. Date format: YYYY-MM-DD. If not present, defaults to today''s date (America/Toronto).'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ShipmentDate
+  - term: SenderInformation
+    definition: 'Object declared by the contract with fields: companyName, attentionTo, streetAddress, city, provinceStateCode, country, postalZipCode,
+      phoneNumber.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/SenderInformation
+  - term: ReceiverInformation
+    definition: Outbound receiver address. CA, US, or international. For crossBorderInformation the receiver must not be Canada (typically US).
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ReceiverInformation
+  - term: ReturnReceiverInformation
+    definition: Return shipment receiver address. Always Canadian (CA).
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ReturnReceiverInformation
+  - term: ExpressChequeInformation
+    definition: 'Object declared by the contract with fields: companyName, attentionTo, streetAddress, city, provinceStateCode, country, postalZipCode,
+      phoneNumber.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ExpressChequeInformation
+  - term: BuyerInformation
+    definition: 'Object declared by the contract with fields: companyName, attentionTo, streetAddress, city, provinceStateCode, country, postalZipCode,
+      phoneNumber.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/BuyerInformation
+  - term: ThirdPartyBillingInformation
+    definition: 'Object declared by the contract with fields: companyName, attentionTo, streetAddress, city, provinceStateCode, country, postalZipCode,
+      phoneNumber.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ThirdPartyBillingInformation
+  - term: USOriginInformation
+    definition: 'Object declared by the contract with fields: companyName, attentionTo, streetAddress, city, provinceStateCode, country, postalZipCode,
+      phoneNumber.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/USOriginInformation
+  - term: PaymentInformation
+    definition: 'Object declared by the contract with fields: registeredAccountNumber, billingAccountNumber, paymentType.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/PaymentInformation
+  - term: ShipmentOptionIdValuePair
+    definition: 'Object declared by the contract with fields: optionId, optionIdValue.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ShipmentOptionIdValuePair
+  - term: PackageOptionIdValuePair
+    definition: 'Object declared by the contract with fields: optionId, optionIdValue.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/PackageOptionIdValuePair
+  - term: PackageInformation
+    definition: 'Object declared by the contract with fields: packageWeight, packageLength, packageWidth, packageHeight, packageReference1, packageReference2,
+      packageReference3, packageReference4, packageReference5, packageOptionsInformation, brokeragePackageNumber.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/PackageInformation
+  - term: CustomerReferenceInformation
+    definition: 'Object declared by the contract with fields: costCenter, notes, shipmentReference1, shipmentReference2, shipmentReference3, shipmentReference4,
+      shipmentReference5, costCenterReference.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/CustomerReferenceInformation
+  - term: NotificationType
+    definition: 'Object declared by the contract with fields: notificationId, notificationMessage.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/NotificationType
+  - term: Subscription
+    definition: 'Object declared by the contract with fields: name, email, notificationType.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/Subscription
+  - term: Notifications
+    definition: 'Object declared by the contract with fields: requestorName, requestorEmail, subscriptions.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/Notifications
+  - term: NonDocumentsInformation
+    definition: 'Object declared by the contract with fields: taxesPaid, currencyForDutiableGoods, importExportType, extraCharges, extraChargeCode,
+      specialInstructionFlag, billDutiesToParty, businessRelationship, customsInvoiceDocumentIndicator, brokerageReferenceNumber.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/NonDocumentsInformation
+  - term: ContentDetails
+    definition: 'Object declared by the contract with fields: description, harmonizedCode, countryOfManufacture, unitValue, productCode, quantity,
+      unitOfMeasure, usmcaDocumentIndicator, fdaDocumentIndicator, senderIsProducerIndicator, textileIndicator, textileManufacturer. (4 more)'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ContentDetails
+  - term: CrossBorderInformation
+    definition: 'Object declared by the contract with fields: documentsOnlyIndicator, currency, nonDocumentsInformation, contentDetails.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/CrossBorderInformation
+  - term: Label
+    definition: 'Object declared by the contract with fields: outputType, printerFormat, responseType.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/Label
+  - term: ShipmentDocuments
+    definition: 'Object declared by the contract with fields: label.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ShipmentDocuments
+  - term: ShipmentInformation
+    definition: 'Object declared by the contract with fields: serviceId, unitOfMeasurement, descriptionOfGoods, totalWeight, totalPackages, dangerousGoodsDeclarationDocumentIndicator,
+      declaredValue, internationalOrderNumber, codAmount, specialInstructions, shipmentOptionsInformation, packageInformation.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ShipmentInformation
+  - term: OutboundShipment
+    definition: 'Object declared by the contract with fields: paymentInformation, pickupType, senderInformation, receiverInformation, usOriginInformation,
+      fromOnLabelInformation, expressChequeInformation, buyerInformation, brokerageVendorAddress, brokerageExporterAddress, thirdPartyBillingInformation,
+      shipmentInformation. (3 more)'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/OutboundShipment
+  - term: ReturnShipment
+    definition: 'Object declared by the contract with fields: numberOfReturnShipments, pickupType, paymentInformation, senderInformation, receiverInformation,
+      shipmentInformation, customerReferenceInformation, notifications.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ReturnShipment
+  - term: CreateShipmentRequest
+    definition: 'Object declared by the contract with fields: lineOfBusiness, shipmentDate, returnsManagement, rma, validateOnly, returnRates,
+      shipmentDocuments, outboundShipment, returnShipment.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/CreateShipmentRequest
+  - term: ShipmentDetails
+    definition: 'Object declared by the contract with fields: shipmentPIN, packagePINs, returnShipmentPIN, expressChequePIN, internationalOrderNumber,
+      brokeragePackageNumbers.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ShipmentDetails
+  - term: DocumentEntry
+    definition: 'Object declared by the contract with fields: packagePIN, documentType, description, documentStatus, url, data, code128Value.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/DocumentEntry
+  - term: ShipmentDocumentGroup
+    definition: 'Object declared by the contract with fields: shipmentPIN, documents.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ShipmentDocumentGroup
+  - term: Surcharge
+    definition: 'Object declared by the contract with fields: surcharge.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/Surcharge
+  - term: Tax
+    definition: 'Object declared by the contract with fields: tax.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/Tax
+  - term: OptionPrice
+    definition: 'Object declared by the contract with fields: option.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/OptionPrice
+  - term: ShipmentEstimate
+    definition: 'Object declared by the contract with fields: lineOfBusiness, serviceId, unitOfMeasurement, shipmentDate, expectedDeliveryDate,
+      estimatedTransitDays, basePrice, surcharges, optionPrices, subTotal, taxes, totalPrice.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ShipmentEstimate
+  - term: ShipmentEstimateWrapper
+    definition: 'Object declared by the contract with fields: shipmentEstimate.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/ShipmentEstimateWrapper
+  - term: CreateShipmentResponse
+    definition: 'Object declared by the contract with fields: requestReference, validShipment, bannerMessages, shipmentDetails, shipmentDocuments,
+      outboundShipmentEstimates, returnShipmentEstimates, errors.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/CreateShipmentResponse
+  - term: VoidShipmentRequest
+    definition: 'Object declared by the contract with fields: lineOfBusiness, shipmentPIN, requestReference, language.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/VoidShipmentRequest
+  - term: VoidShipmentResponse
+    definition: 'Object declared by the contract with fields: requestReference, shipmentVoided, bannerMessage, errors.'
+    tags:
+    - Object
+    source: openapi/purolator-create-void-shipment-openapi.yml#/components/schemas/VoidShipmentResponse
+  - term: EstimateRequest
+    definition: 'Object declared by the contract with fields: lineOfBusiness, shipmentDate.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/EstimateRequest
+  - term: OutboundShipmentBase
+    definition: 'Object declared by the contract with fields: billingInformation, senderInformation, receiverInformation.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/OutboundShipmentBase
+  - term: BillingInformation
+    definition: 'Object declared by the contract with fields: billingAccountNumber, displayPublishedRates.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/BillingInformation
+  - term: SenderAddress
+    definition: 'Object declared by the contract with fields: companyName, streetAddress, city, provinceStateCode, country, postalZipCode.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/SenderAddress
+  - term: ReceiverAddress
+    definition: 'Object declared by the contract with fields: companyName, streetAddress, city, provinceStateCode, country, postalZipCode.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/ReceiverAddress
+  - term: AddressLine
+    definition: 'Object declared by the contract with fields: Address.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/AddressLine
+  - term: PackageInformationDateUOMBase
+    definition: 'Object declared by the contract with fields: unitOfMeasurement.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/PackageInformationDateUOMBase
+  - term: PackageInformationSpecialInstructionsBase
+    definition: 'Object declared by the contract with fields: specialInstructions.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/PackageInformationSpecialInstructionsBase
+  - term: TrackingReferenceInformation
+    definition: 'Object declared by the contract with fields: reference1, reference2, reference3, reference4, reference5.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/TrackingReferenceInformation
+  - term: TrackingReference
+    definition: Tracking reference information
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/TrackingReference
+  - term: CourierServiceId
+    definition: 'Object declared by the contract with fields: serviceId.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/CourierServiceId
+  - term: ReturnCourierServiceId
+    definition: 'Object declared by the contract with fields: serviceId.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/ReturnCourierServiceId
+  - term: FreightServiceId
+    definition: 'Object declared by the contract with fields: serviceId.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/FreightServiceId
+  - term: OptionIdValuePair
+    definition: 'Object declared by the contract with fields: optionId, optionIdValue.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/OptionIdValuePair
+  - term: ReturnOptionIdValuePair
+    definition: 'Object declared by the contract with fields: optionId, optionIdValue.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/ReturnOptionIdValuePair
+  - term: PieceOptionIdValuePair
+    definition: 'Object declared by the contract with fields: optionId, optionIdValue.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/PieceOptionIdValuePair
+  - term: Piece
+    definition: 'Object declared by the contract with fields: packageWeight, packageLength, packageWidth, packageHeight, packageOptionsInformation.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/Piece
+  - term: LineItemBase
+    definition: 'Object declared by the contract with fields: lineItem, pieces, handlingUnit, handlingUnitType, description, freightClass.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/LineItemBase
+  - term: LineItemRequestMeasurements
+    definition: 'Object declared by the contract with fields: weight, length, width, height.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/LineItemRequestMeasurements
+  - term: BoolValuePair
+    definition: 'Object declared by the contract with fields: keyword, keywordValue.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/BoolValuePair
+  - term: CourierEstimateResponse
+    definition: 'Object declared by the contract with fields: outboundShipmentEstimates, returnShipmentEstimates.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/CourierEstimateResponse
+  - term: FreightEstimateResponse
+    definition: 'Object declared by the contract with fields: outboundShipmentEstimates.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/FreightEstimateResponse
+  - term: FreightOutboundShipmentEstimate
+    definition: 'Object declared by the contract with fields: shipmentEstimate.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/FreightOutboundShipmentEstimate
+  - term: CourierOutboundShipmentEstimate
+    definition: 'Object declared by the contract with fields: shipmentEstimate.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/CourierOutboundShipmentEstimate
+  - term: CourierReturnShipmentEstimate
+    definition: 'Object declared by the contract with fields: shipmentEstimate.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/CourierReturnShipmentEstimate
+  - term: ShipmentEstimateDaysBase
+    definition: 'Object declared by the contract with fields: shipmentDate, expectedDeliveryDate, estimatedTransitDays.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/ShipmentEstimateDaysBase
+  - term: ShipmentEstimatePriceBase
+    definition: 'Object declared by the contract with fields: subTotal, taxes, totalPrice.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/ShipmentEstimatePriceBase
+  - term: LineItemResponseMeasurements
+    definition: 'Object declared by the contract with fields: weight, length, width, height.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/LineItemResponseMeasurements
+  - term: AccessorialItem
+    definition: 'Object declared by the contract with fields: code, description, charge.'
+    tags:
+    - Object
+    source: openapi/purolator-estimate-openapi.yml#/components/schemas/AccessorialItem

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-void-request-schema.json",
+  "title": "voidRequest",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-pickup-openapi.yml#/components/schemas/voidRequest",
+  "type": "object",
+  "properties": {
+    "pickupConfirmationNumber": {
+      "type": "string",
+      "description": "Shipment pickup confirmation number"
+    },
+    "lineOfBusiness": {
+      "type": "string",
+      "description": "Line of business which the pickup is for. Case-insensitive.",
+      "enum": [
+        "Courier",
+        "Freight"
+      ]
+    }
+  },
+  "required": [
+    "lineOfBusiness",
+    "pickupConfirmationNumber"
+  ]
+}

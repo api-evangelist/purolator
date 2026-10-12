@@ -1,0 +1,82 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/purolator-close-manifest-openapi.yml
+- openapi/purolator-create-void-shipment-openapi.yml
+- openapi/purolator-get-documents-openapi.yml
+- openapi/purolator-get-summary-manifest-openapi.yml
+- openapi/purolator-locator-openapi.yml
+- openapi/purolator-pickup-openapi.yml
+- openapi/purolator-token-openapi.yml
+- openapi/purolator-tracking-openapi.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: 'No MCP server was found. The pre-flight posted tools/list to /mcp on api.purolator.com, www.purolator.com, careers.purolator.com, cloud.connect.purolator.com;
+  verdict opaque (https://api.purolator.com/mcp answered 403: the edge authenticates before it routes, which proves nothing either way). Candidate
+  tools below are derived from the 12 operation(s) in the provider''s own OpenAPI (12 listed); they describe what a server WOULD expose, not one
+  that exists.'
+tools:
+- name: create_v1_manifest
+  operationId: POST /ship/v1/manifest
+  method: POST
+  path: /ship/v1/manifest
+  description: Close manifest
+- name: create_v1_shipment
+  operationId: POST /ship/v1/shipment
+  method: POST
+  path: /ship/v1/shipment
+  description: Create a shipment
+- name: create_v1_documents
+  operationId: POST /ship/v1/documents
+  method: POST
+  path: /ship/v1/documents
+  description: Get shipment documents
+- name: create_documents_summary-manifest
+  operationId: POST /ship/v1/documents/summary-manifest
+  method: POST
+  path: /ship/v1/documents/summary-manifest
+  description: Get summary manifest
+- name: get_v1_address
+  operationId: GET /locator/v1/address
+  method: GET
+  path: /locator/v1/address
+  description: Retrieve locator address information
+- name: post_pickup
+  operationId: post_pickup
+  method: POST
+  path: /pickup/v1/schedule
+  description: Schedule pickup
+- name: okta_authentication
+  operationId: oktaAuthentication
+  method: POST
+  path: /auth/v1/token
+  description: Get
+- name: get_tracking_info
+  operationId: getTrackingInfo
+  method: POST
+  path: /track/v1/shipment
+  description: search by tracking id or reference
+- name: update_v1_shipment
+  operationId: PUT /ship/v1/shipment
+  method: PUT
+  path: /ship/v1/shipment
+  description: Void a shipment
+- name: modify_pickup
+  operationId: modify_pickup
+  method: PUT
+  path: /pickup/v1/modify
+  description: Modify a scheduled pickup
+- name: history_pickup
+  operationId: history_pickup
+  method: POST
+  path: /pickup/v1/getHistory
+  description: Shows history for pickup
+- name: void_pickup
+  operationId: void_pickup
+  method: PUT
+  path: /pickup/v1/void
+  description: Void pickup

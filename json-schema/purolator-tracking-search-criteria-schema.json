@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-tracking-search-criteria-schema.json",
+  "title": "TrackingSearchCriteria",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-tracking-openapi.yml#/components/schemas/TrackingSearchCriteria",
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string",
+      "description": "Language expected in response customer facing fields"
+    },
+    "search": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/OnlineTrackingSearchRequest"
+      }
+    }
+  },
+  "$defs": {
+    "OnlineTrackingSearchRequest": {
+      "type": "object",
+      "required": [
+        "trackingId"
+      ],
+      "properties": {
+        "trackingId": {
+          "type": "string",
+          "description": "requested pin/reference"
+        },
+        "pod": {
+          "type": "boolean",
+          "description": "Proof of delivery image (Signature or Scanner Photo)"
+        },
+        "shipmentDateFrom": {
+          "type": "string",
+          "description": "Shipment Date From - Date provided for duplicate pins"
+        },
+        "shipmentDateTo": {
+          "type": "string",
+          "description": "Shipment Date To - Date provided for duplicate pins"
+        },
+        "account": {
+          "type": "string",
+          "description": "Shipper account"
+        },
+        "destinationPostalZipCode": {
+          "type": "string",
+          "description": "Destination Postal Code"
+        },
+        "eventSortOrder": {
+          "type": "string",
+          "description": "Event Sort Order - a/d Assending/decending"
+        }
+      },
+      "description": "Array of all the search requests"
+    }
+  }
+}

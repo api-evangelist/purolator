@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-close-manifest-request-schema.json",
+  "title": "CloseManifestRequest",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-close-manifest-openapi.yml#/components/schemas/CloseManifestRequest",
+  "type": "object",
+  "required": [
+    "lineOfBusiness",
+    "accountNumber"
+  ],
+  "properties": {
+    "lineOfBusiness": {
+      "$ref": "#/$defs/LineOfBusiness"
+    },
+    "accountNumber": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 15,
+      "description": "Account number whose manifest should be closed."
+    },
+    "requestReference": {
+      "$ref": "#/$defs/RequestReference"
+    },
+    "language": {
+      "$ref": "#/$defs/Language"
+    }
+  },
+  "$defs": {
+    "Language": {
+      "type": "string",
+      "enum": [
+        "EN",
+        "FR"
+      ],
+      "default": "EN",
+      "description": "Response language. Case-insensitive. If not provided, defaults to EN (English)."
+    },
+    "LineOfBusiness": {
+      "type": "string",
+      "enum": [
+        "Courier",
+        "Freight"
+      ],
+      "description": "Line of business. Case-insensitive. Only Courier is supported."
+    },
+    "RequestReference": {
+      "type": "string",
+      "maxLength": 36,
+      "description": "A unique identifier for the request. Can be used to match request with the response. If not provided, a random UUID is generated."
+    }
+  }
+}

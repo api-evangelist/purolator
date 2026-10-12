@@ -1,23 +1,270 @@
 aid: purolator
 name: Purolator
-description: 'Purolator is a company surfaced via the API Evangelist harvest backlog (source: market-gap)
-  and added to the network as a stub for full-pipeline profiling.'
+image: https://www.purolator.com/themes/custom/purolator_theme/logo.png
+description: Purolator is a Canadian courier and freight carrier. Its API Portal publishes REST APIs (OAuth bearer
+  tokens) for authentication, estimating, locating, pickups, tracking, shipping, documents and manifests, with public
+  OpenAPI 3.0 definitions, alongside its legacy E-Ship SOAP web services, whose WSDLs require credentials.
 url: https://raw.githubusercontent.com/api-evangelist/purolator/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:market-gap
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-13 (local-v5; was harvest)
 specificationVersion: '0.20'
 created: '2026-10-13'
 modified: '2026-10-13'
 tags:
 - Company
-apis: []
+- Shipping
+- Logistics
+- Courier
+- Canada
+- Tracking
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/purolator-agentic-access.yml
+- type: Spectral
+  url: rules/purolator-rules.yml
+- type: JSONLD
+  url: json-ld/purolator-context.jsonld
+- type: Vocabulary
+  url: vocabulary/purolator-vocabulary.yml
+- type: DataModel
+  url: data-model/purolator-data-model.yml
+- type: ErrorCatalog
+  url: errors/purolator-problem-types.yml
+- type: Conformance
+  url: conformance/purolator-conformance.yml
+- type: Hosts
+  url: hosts/purolator-hosts.yml
+- type: Vendors
+  url: vendors/purolator-vendors.yml
+- type: TermsOfService
+  url: https://www.purolator.com/en/terms-and-conditions-service
+- type: Support
+  url: https://www.purolator.com/en/support/contact-us/confirm
+- type: PrivacyPolicy
+  url: https://community.purolator.com/en/privacy
+- type: Authentication
+  url: authentication/purolator-authentication.yml
+- type: DomainSecurity
+  url: security/purolator-domain-security.yml
 - type: Website
   url: https://www.purolator.com
+- type: Portal
+  url: https://ship.purolator.com/developer/?lang=en
+- type: Documentation
+  url: https://ship.purolator.com/developer/restapicatalogue?lang=en
+- type: SignUp
+  url: https://ship.purolator.com/developer/?lang=en
+apis:
+- aid: purolator:token
+  name: Purolator Authentication API
+  description: Issues and manages OAuth-style bearer access tokens (client credentials via Basic auth) used to call
+    the Purolator REST APIs.
+  humanURL: https://ship.purolator.com/developer/restapicatalogue/auth?lang=en
+  baseURL: https://shipapi.purolator.com
+  tags:
+  - Authentication
+  properties:
+  - type: Documentation
+    url: https://ship.purolator.com/developer/restapicatalogue/auth?lang=en
+  - type: OpenAPI
+    url: openapi/purolator-token-openapi.yml
+  - type: Sandbox
+    url: https://shipapi-sandbox.purolator.com
+  - type: JSONSchema
+    url: json-schema/purolator-authentication200-schema.json
+- aid: purolator:estimate
+  name: Purolator Estimate API
+  description: Real-time rate and transit time estimates for shipments originating in Canada.
+  humanURL: https://ship.purolator.com/developer/restapicatalogue/estimate?lang=en
+  baseURL: https://shipapi.purolator.com
+  tags:
+  - Rates
+  - Shipping
+  properties:
+  - type: Documentation
+    url: https://ship.purolator.com/developer/restapicatalogue/estimate?lang=en
+  - type: OpenAPI
+    url: openapi/purolator-estimate-openapi.yml
+  - type: Sandbox
+    url: https://shipapi-sandbox.purolator.com
+  - type: JSONSchema
+    url: json-schema/purolator-courier-estimate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-freight-estimate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-request-reference-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-courier-estimate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-freight-estimate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-language-schema.json
+- aid: purolator:locator
+  name: Purolator Locator API
+  description: Finds the nearest Purolator service points and drop-off locations for an address or postal code.
+  humanURL: https://ship.purolator.com/developer/restapicatalogue/locator?lang=en
+  baseURL: https://shipapi.purolator.com
+  tags:
+  - Locations
+  - Shipping
+  properties:
+  - type: Documentation
+    url: https://ship.purolator.com/developer/restapicatalogue/locator?lang=en
+  - type: OpenAPI
+    url: openapi/purolator-locator-openapi.yml
+  - type: Sandbox
+    url: https://shipapi-sandbox.purolator.com
+- aid: purolator:pickup
+  name: Purolator Pickup API
+  description: Schedule, modify, void and list pickup requests.
+  humanURL: https://ship.purolator.com/developer/restapicatalogue/pickup?lang=en
+  baseURL: https://shipapi.purolator.com
+  tags:
+  - Pickups
+  - Shipping
+  properties:
+  - type: Documentation
+    url: https://ship.purolator.com/developer/restapicatalogue/pickup?lang=en
+  - type: OpenAPI
+    url: openapi/purolator-pickup-openapi.yml
+  - type: Sandbox
+    url: https://shipapi-sandbox.purolator.com
+  - type: JSONSchema
+    url: json-schema/purolator-pickup-courier-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-get-history-request-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-modify-pickup-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-void-request-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-history-api-response-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-api-response-schema.json
+- aid: purolator:tracking
+  name: Purolator Tracking API
+  description: Shipment status, delivery confirmation, photo proof of delivery and event history by tracking number.
+  humanURL: https://ship.purolator.com/developer/restapicatalogue/tracking?lang=en
+  baseURL: https://shipapi.purolator.com
+  tags:
+  - Tracking
+  - Shipping
+  properties:
+  - type: Documentation
+    url: https://ship.purolator.com/developer/restapicatalogue/tracking?lang=en
+  - type: OpenAPI
+    url: openapi/purolator-tracking-openapi.yml
+  - type: Sandbox
+    url: https://shipapi-sandbox.purolator.com
+  - type: JSONSchema
+    url: json-schema/purolator-online-tracking-response-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-tracking-search-criteria-schema.json
+- aid: purolator:create-void-shipment
+  name: Purolator Shipping API
+  description: Create and void shipments, including returns and labels.
+  humanURL: https://ship.purolator.com/developer/restapicatalogue/shipping?lang=en
+  baseURL: https://shipapi.purolator.com
+  tags:
+  - Shipping
+  - Labels
+  properties:
+  - type: Documentation
+    url: https://ship.purolator.com/developer/restapicatalogue/shipping?lang=en
+  - type: OpenAPI
+    url: openapi/purolator-create-void-shipment-openapi.yml
+  - type: Sandbox
+    url: https://shipapi-sandbox.purolator.com
+  - type: JSONSchema
+    url: json-schema/purolator-create-shipment-request-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-create-shipment-response-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-void-shipment-request-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-void-shipment-response-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-request-reference-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-language-schema.json
+- aid: purolator:get-documents
+  name: Purolator Documents API
+  description: Retrieve shipment documents such as labels, invoices and customs forms.
+  humanURL: https://ship.purolator.com/developer/restapicatalogue/documents?lang=en
+  baseURL: https://shipapi.purolator.com
+  tags:
+  - Documents
+  - Shipping
+  properties:
+  - type: Documentation
+    url: https://ship.purolator.com/developer/restapicatalogue/documents?lang=en
+  - type: OpenAPI
+    url: openapi/purolator-get-documents-openapi.yml
+  - type: Sandbox
+    url: https://shipapi-sandbox.purolator.com
+  - type: JSONSchema
+    url: json-schema/purolator-get-documents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-get-documents-request-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-request-reference-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-language-schema.json
+- aid: purolator:get-summary-manifest
+  name: Purolator Summary Manifest API
+  description: Retrieve a summary manifest of shipments.
+  humanURL: https://ship.purolator.com/developer/restapicatalogue/summary-manifest?lang=en
+  baseURL: https://shipapi.purolator.com
+  tags:
+  - Manifests
+  - Shipping
+  properties:
+  - type: Documentation
+    url: https://ship.purolator.com/developer/restapicatalogue/summary-manifest?lang=en
+  - type: OpenAPI
+    url: openapi/purolator-get-summary-manifest-openapi.yml
+  - type: Sandbox
+    url: https://shipapi-sandbox.purolator.com
+  - type: JSONSchema
+    url: json-schema/purolator-get-summary-manifest-request-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-get-summary-manifest-response-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-request-reference-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-language-schema.json
+- aid: purolator:close-manifest
+  name: Purolator Close Manifest API
+  description: Close a shipment manifest, finalizing shipment details.
+  humanURL: https://ship.purolator.com/developer/restapicatalogue/close-manifest?lang=en
+  baseURL: https://shipapi.purolator.com
+  tags:
+  - Manifests
+  - Shipping
+  properties:
+  - type: Documentation
+    url: https://ship.purolator.com/developer/restapicatalogue/close-manifest?lang=en
+  - type: OpenAPI
+    url: openapi/purolator-close-manifest-openapi.yml
+  - type: Sandbox
+    url: https://shipapi-sandbox.purolator.com
+  - type: JSONSchema
+    url: json-schema/purolator-close-manifest-response-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-close-manifest-request-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-request-reference-schema.json
+  - type: JSONSchema
+    url: json-schema/purolator-language-schema.json
+x-enrichment:
+  date: '2026-10-13'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v5

@@ -1,0 +1,436 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-courier-estimate-response-schema.json",
+  "title": "CourierEstimateResponse",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-estimate-openapi.yml#/components/schemas/CourierEstimateResponse",
+  "type": "object",
+  "required": [
+    "outboundShipmentEstimates"
+  ],
+  "properties": {
+    "outboundShipmentEstimates": {
+      "$ref": "#/$defs/CourierOutboundShipmentEstimate"
+    },
+    "returnShipmentEstimates": {
+      "$ref": "#/$defs/CourierReturnShipmentEstimate"
+    }
+  },
+  "$defs": {
+    "BaseResponse": {
+      "type": "object",
+      "required": [
+        "lineOfBusiness"
+      ],
+      "properties": {
+        "lineOfBusiness": {
+          "$ref": "#/$defs/LineOfBusiness"
+        }
+      }
+    },
+    "CourierOutboundEstimate": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/BaseResponse"
+        },
+        {
+          "$ref": "#/$defs/CourierServiceId"
+        },
+        {
+          "$ref": "#/$defs/PackageInformationDateUOMBase"
+        },
+        {
+          "$ref": "#/$defs/ShipmentEstimateDaysBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "basePrice",
+            "unitOfMeasurement",
+            "shipmentDate"
+          ],
+          "properties": {
+            "basePrice": {
+              "type": "number",
+              "format": "double",
+              "multipleOf": 0.01,
+              "description": ""
+            },
+            "surcharges": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Surcharge"
+              }
+            },
+            "optionPrices": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/OptionPrice"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/ShipmentEstimatePriceBase"
+        }
+      ]
+    },
+    "CourierOutboundShipmentEstimate": {
+      "type": "object",
+      "required": [
+        "shipmentEstimate"
+      ],
+      "properties": {
+        "shipmentEstimate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CourierOutboundEstimate"
+          }
+        }
+      }
+    },
+    "CourierReturnEstimate": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/BaseResponse"
+        },
+        {
+          "$ref": "#/$defs/ReturnCourierServiceId"
+        },
+        {
+          "$ref": "#/$defs/PackageInformationDateUOMBase"
+        },
+        {
+          "$ref": "#/$defs/ShipmentEstimateDaysBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "basePrice",
+            "unitOfMeasurement",
+            "shipmentDate"
+          ],
+          "properties": {
+            "basePrice": {
+              "type": "number",
+              "format": "double",
+              "multipleOf": 0.01,
+              "description": ""
+            },
+            "surcharges": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Surcharge"
+              }
+            },
+            "optionPrices": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/OptionPrice"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/ShipmentEstimatePriceBase"
+        }
+      ]
+    },
+    "CourierReturnShipmentEstimate": {
+      "type": "object",
+      "required": [
+        "shipmentEstimate"
+      ],
+      "properties": {
+        "shipmentEstimate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CourierReturnEstimate"
+          }
+        }
+      }
+    },
+    "CourierServiceId": {
+      "type": "object",
+      "required": [
+        "serviceId"
+      ],
+      "properties": {
+        "serviceId": {
+          "type": "string",
+          "maximum": 128,
+          "description": "The service name being used. Case-insensitive",
+          "enum": [
+            "PurolatorExpress",
+            "PurolatorExpress10:30AM",
+            "PurolatorExpress12PM",
+            "PurolatorExpress9AM",
+            "PurolatorExpressEvening",
+            "PurolatorExpressInternational",
+            "PurolatorExpressInternational10:30AM",
+            "PurolatorExpressInternational12:00",
+            "PurolatorExpressInternational9AM",
+            "PurolatorExpressU.S.",
+            "PurolatorExpressU.S.10:30AM",
+            "PurolatorExpressU.S.12:00",
+            "PurolatorExpressU.S.9AM",
+            "PurolatorExpressBox",
+            "PurolatorExpressBox10:30AM",
+            "PurolatorExpressBox12PM",
+            "PurolatorExpressBox9AM",
+            "PurolatorExpressBoxEvening",
+            "PurolatorExpressBoxInternational",
+            "PurolatorExpressBoxU.S.",
+            "PurolatorExpressInternationalBox10:30AM",
+            "PurolatorExpressInternationalBox12:00",
+            "PurolatorExpressInternationalBox9AM",
+            "PurolatorExpressU.S.Box10:30AM",
+            "PurolatorExpressU.S.Box12:00",
+            "PurolatorExpressU.S.Box9AM",
+            "PurolatorExpressEnvelope",
+            "PurolatorExpressEnvelope10:30AM",
+            "PurolatorExpressEnvelope12PM",
+            "PurolatorExpressEnvelope9AM",
+            "PurolatorExpressEnvelopeEvening",
+            "PurolatorExpressEnvelopeInternational",
+            "PurolatorExpressEnvelopeU.S.",
+            "PurolatorExpressInternationalEnvelope10:30AM",
+            "PurolatorExpressInternationalEnvelope12:00",
+            "PurolatorExpressInternationalEnvelope9AM",
+            "PurolatorExpressU.S.Envelope10:30AM",
+            "PurolatorExpressU.S.Envelope12:00",
+            "PurolatorExpressU.S.Envelope9AM",
+            "PurolatorExpressInternationalPack10:30AM",
+            "PurolatorExpressInternationalPack12:00",
+            "PurolatorExpressInternationalPack9AM",
+            "PurolatorExpressPack",
+            "PurolatorExpressPack10:30AM",
+            "PurolatorExpressPack12PM",
+            "PurolatorExpressPack9AM",
+            "PurolatorExpressPackEvening",
+            "PurolatorExpressPackInternational",
+            "PurolatorExpressPackU.S.",
+            "PurolatorExpressU.S.Pack10:30AM",
+            "PurolatorExpressU.S.Pack12:00",
+            "PurolatorExpressU.S.Pack9AM",
+            "PurolatorGround",
+            "PurolatorGround10:30AM",
+            "PurolatorGround9AM",
+            "PurolatorGroundEvening",
+            "PurolatorGroundU.S.",
+            "PurolatorQuickShip"
+          ]
+        }
+      }
+    },
+    "LineOfBusiness": {
+      "type": "string",
+      "enum": [
+        "Freight",
+        "Courier"
+      ],
+      "description": "Line of business which the estimate is for. Case-insensitive."
+    },
+    "OptionPrice": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "multipleOf": 0.01,
+          "description": ""
+        },
+        "id": {
+          "type": "string",
+          "description": ""
+        },
+        "description": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    },
+    "PackageInformationDateUOMBase": {
+      "type": "object",
+      "properties": {
+        "unitOfMeasurement": {
+          "type": "string",
+          "enum": [
+            "Metric",
+            "Imperial"
+          ],
+          "default": "Imperial",
+          "description": "The unit of measurement used for package weight and lengths. Imperial uses pounds and inches, while metric uses kilograms and centimeters. If not provided, defaults to imperial."
+        }
+      }
+    },
+    "ReturnCourierServiceId": {
+      "type": "object",
+      "required": [
+        "serviceId"
+      ],
+      "properties": {
+        "serviceId": {
+          "type": "string",
+          "maximum": 128,
+          "description": "The service name being used. Case-insensitive",
+          "enum": [
+            "PurolatorExpress",
+            "PurolatorExpress10:30AM",
+            "PurolatorExpress12PM",
+            "PurolatorExpress9AM",
+            "PurolatorExpressEvening",
+            "PurolatorExpressInternational",
+            "PurolatorExpressInternational10:30AM",
+            "PurolatorExpressInternational12:00",
+            "PurolatorExpressInternational9AM",
+            "PurolatorExpressU.S.",
+            "PurolatorExpressU.S.10:30AM",
+            "PurolatorExpressU.S.12:00",
+            "PurolatorExpressU.S.9AM",
+            "PurolatorExpressBox",
+            "PurolatorExpressBox10:30AM",
+            "PurolatorExpressBox12PM",
+            "PurolatorExpressBox9AM",
+            "PurolatorExpressBoxEvening",
+            "PurolatorExpressBoxInternational",
+            "PurolatorExpressBoxU.S.",
+            "PurolatorExpressInternationalBox10:30AM",
+            "PurolatorExpressInternationalBox12:00",
+            "PurolatorExpressInternationalBox9AM",
+            "PurolatorExpressU.S.Box10:30AM",
+            "PurolatorExpressU.S.Box12:00",
+            "PurolatorExpressU.S.Box9AM",
+            "PurolatorExpressEnvelope",
+            "PurolatorExpressEnvelope10:30AM",
+            "PurolatorExpressEnvelope12PM",
+            "PurolatorExpressEnvelope9AM",
+            "PurolatorExpressEnvelopeEvening",
+            "PurolatorExpressEnvelopeInternational",
+            "PurolatorExpressEnvelopeU.S.",
+            "PurolatorExpressInternationalEnvelope10:30AM",
+            "PurolatorExpressInternationalEnvelope12:00",
+            "PurolatorExpressInternationalEnvelope9AM",
+            "PurolatorExpressU.S.Envelope10:30AM",
+            "PurolatorExpressU.S.Envelope12:00",
+            "PurolatorExpressU.S.Envelope9AM",
+            "PurolatorExpressInternationalPack10:30AM",
+            "PurolatorExpressInternationalPack12:00",
+            "PurolatorExpressInternationalPack9AM",
+            "PurolatorExpressPack",
+            "PurolatorExpressPack10:30AM",
+            "PurolatorExpressPack12PM",
+            "PurolatorExpressPack9AM",
+            "PurolatorExpressPackEvening",
+            "PurolatorExpressPackInternational",
+            "PurolatorExpressPackU.S.",
+            "PurolatorExpressU.S.Pack10:30AM",
+            "PurolatorExpressU.S.Pack12:00",
+            "PurolatorExpressU.S.Pack9AM",
+            "PurolatorGround",
+            "PurolatorGround10:30AM",
+            "PurolatorGround9AM",
+            "PurolatorGroundEvening",
+            "PurolatorGroundU.S.",
+            "PurolatorQuickShip"
+          ]
+        }
+      }
+    },
+    "ShipmentDate": {
+      "type": "string",
+      "format": "date",
+      "default": "Today's Date",
+      "description": "Date of shipment. Up to 10 days in advance. Date format: YYYY-MM-DD. If not present, default to today's date."
+    },
+    "ShipmentEstimateDaysBase": {
+      "type": "object",
+      "required": [
+        "expectedDeliveryDate",
+        "estimatedTransitDays"
+      ],
+      "properties": {
+        "shipmentDate": {
+          "$ref": "#/$defs/ShipmentDate"
+        },
+        "expectedDeliveryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Estimated delivery date based on shipment date. Date format: YYYY-MM-DD"
+        },
+        "estimatedTransitDays": {
+          "type": "integer",
+          "description": "Estimated number of transit days."
+        }
+      }
+    },
+    "ShipmentEstimatePriceBase": {
+      "type": "object",
+      "required": [
+        "subTotal",
+        "taxes",
+        "totalPrice"
+      ],
+      "properties": {
+        "subTotal": {
+          "type": "number",
+          "format": "double",
+          "multipleOf": 0.01,
+          "description": "Subtotal before taxes."
+        },
+        "taxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Tax"
+          }
+        },
+        "totalPrice": {
+          "type": "number",
+          "format": "double",
+          "multipleOf": 0.01,
+          "description": "Total price of the estimate."
+        }
+      }
+    },
+    "Surcharge": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "multipleOf": 0.01,
+          "description": ""
+        },
+        "type": {
+          "type": "string",
+          "description": ""
+        },
+        "description": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    },
+    "Tax": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "multipleOf": 0.01,
+          "description": ""
+        },
+        "type": {
+          "type": "string",
+          "description": ""
+        },
+        "description": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    }
+  }
+}

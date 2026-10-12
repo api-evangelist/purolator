@@ -66,3 +66,23 @@
 
 Purolator is a company surfaced via the API Evangelist harvest backlog (source: market-gap) and added to the network as a stub for full-pipeline profiling.
 - https://www.purolator.com
+
+## APIs
+
+Purolator's [API Portal](https://ship.purolator.com/developer/restapicatalogue?lang=en) publishes nine REST APIs. Each one has a public OpenAPI 3.0 definition at `https://ship.purolator.com/developer/assets/openapi/prod/`, and copies are saved here unchanged under `openapi/`. The production host is `shipapi.purolator.com` and the sandbox is `shipapi-sandbox.purolator.com`. You get a bearer token from `/auth/v1/token` using client-credentials Basic auth.
+
+| API | Path(s) | OpenAPI |
+|---|---|---|
+| Authentication | `/auth/v1/token` | openapi/purolator-token-openapi.yml |
+| Estimate | `/rate/v1/shipment` | openapi/purolator-estimate-openapi.yml |
+| Locator | `/locator/v1/address` | openapi/purolator-locator-openapi.yml |
+| Pickup | `/pickup/v1/*` | openapi/purolator-pickup-openapi.yml |
+| Tracking | `/track/v1/shipment` | openapi/purolator-tracking-openapi.yml |
+| Shipping (create / void) | `/ship/v1/shipment` | openapi/purolator-create-void-shipment-openapi.yml |
+| Documents | `/ship/v1/documents` | openapi/purolator-get-documents-openapi.yml |
+| Summary Manifest | `/ship/v1/documents/summary-manifest` | openapi/purolator-get-summary-manifest-openapi.yml |
+| Close Manifest | `/ship/v1/manifest` | openapi/purolator-close-manifest-openapi.yml |
+
+The catalogue lists a Service Availability API as "Coming soon". It has no published definition, so none is included here.
+
+**E-Ship SOAP web services (legacy).** The `*.asmx?wsdl` endpoints on `webservices.purolator.com` and `devwebservices.purolator.com` were probed on 2026-10-13: Shipping, Estimating, Tracking, Locator, PickUp, Returns, ShippingDocuments, ServiceAvailability and FreightEstimating. Every one returned HTTP 401, and the SOAP section of the portal requires a sign-in. Because the WSDLs are behind credentials, none is saved here and none was reconstructed.

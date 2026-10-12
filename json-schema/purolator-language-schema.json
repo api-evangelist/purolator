@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-language-schema.json",
+  "title": "Language",
+  "description": "Response language. Case-insensitive. If not provided, defaults to EN (English)",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-estimate-openapi.yml#/components/schemas/Language",
+  "type": "string",
+  "enum": [
+    "EN",
+    "FR"
+  ],
+  "default": "EN"
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-get-history-request-schema.json",
+  "title": "GetHistoryRequest",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-pickup-openapi.yml#/components/schemas/GetHistoryRequest",
+  "type": "object",
+  "properties": {
+    "registeredAccountNumber": {
+      "type": "string",
+      "description": "Purolator Business Account Number",
+      "maxLength": 10,
+      "minLength": 1
+    },
+    "pickupConfirmationNumber": {
+      "type": "array",
+      "description": "Shipment pickup confirmation number. Accept up to 50 confirmation number",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fromDate": {
+      "type": "string",
+      "description": "Date format should be YYYY-MM-DD"
+    },
+    "toDate": {
+      "type": "string",
+      "description": "Date format should be YYYY-MM-DD"
+    },
+    "status": {
+      "type": "string",
+      "description": "Filter by particular status. Case-insensitive.",
+      "enum": [
+        "Scheduled",
+        "Dispatched",
+        "Cancelled",
+        "NoPickup",
+        "PickedUp",
+        "Pending"
+      ]
+    },
+    "lineOfBusiness": {
+      "type": "string",
+      "description": "Line of business which the pickup is for. Case-insensitive.",
+      "enum": [
+        "Courier",
+        "Freight"
+      ]
+    }
+  },
+  "required": [
+    "lineOfBusiness"
+  ]
+}

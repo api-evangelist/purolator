@@ -1,0 +1,61 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/purolator-close-manifest-openapi.yml
+- openapi/purolator-create-void-shipment-openapi.yml
+- openapi/purolator-estimate-openapi.yml
+- openapi/purolator-get-documents-openapi.yml
+- openapi/purolator-get-summary-manifest-openapi.yml
+- openapi/purolator-locator-openapi.yml
+- openapi/purolator-pickup-openapi.yml
+- openapi/purolator-token-openapi.yml
+- openapi/purolator-tracking-openapi.yml
+format: custom
+envelope:
+  media_type: application/json
+  schema: ErrorResponse
+coverage:
+  operations: 16
+  statuses_declared: 6
+problems:
+- status: 400
+  title: Bad Request
+  description: An error based on user input occurred.
+  operations: 13
+  media_types:
+  - application/json
+  schema: ErrorResponse
+- status: 401
+  title: Unauthorized
+  description: Authentication failed.
+  operations: 7
+  media_types:
+  - application/json
+  schema: ErrorResponse
+- status: 403
+  title: Forbidden
+  description: Forbidden
+  operations: 4
+  media_types:
+  - application/json
+  schema: ForbiddenResponse
+- status: 500
+  title: Internal Server Error
+  description: An internal server error occurred.
+  operations: 11
+  media_types:
+  - application/json
+  schema: ErrorResponse
+- status: 503
+  title: Service Unavailable
+  description: Service Unavailable
+  operations: 4
+  media_types: []
+  schema: null
+- status: 504
+  title: Gateway Timeout
+  description: Gateway Timeout
+  operations: 4
+  media_types: []
+  schema: null

@@ -1,0 +1,350 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-freight-estimate-response-schema.json",
+  "title": "FreightEstimateResponse",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-estimate-openapi.yml#/components/schemas/FreightEstimateResponse",
+  "type": "object",
+  "required": [
+    "outboundShipmentEstimates"
+  ],
+  "properties": {
+    "outboundShipmentEstimates": {
+      "$ref": "#/$defs/FreightOutboundShipmentEstimate"
+    }
+  },
+  "$defs": {
+    "AccessorialItem": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": ""
+        },
+        "description": {
+          "type": "string",
+          "description": ""
+        },
+        "charge": {
+          "type": "number",
+          "format": "double",
+          "multipleOf": 0.01,
+          "description": ""
+        }
+      }
+    },
+    "BaseResponse": {
+      "type": "object",
+      "required": [
+        "lineOfBusiness"
+      ],
+      "properties": {
+        "lineOfBusiness": {
+          "$ref": "#/$defs/LineOfBusiness"
+        }
+      }
+    },
+    "FreightOutboundShipmentEstimate": {
+      "type": "object",
+      "required": [
+        "shipmentEstimate"
+      ],
+      "properties": {
+        "shipmentEstimate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FreightShipmentEstimate"
+          }
+        }
+      }
+    },
+    "FreightServiceId": {
+      "type": "object",
+      "required": [
+        "serviceId"
+      ],
+      "properties": {
+        "serviceId": {
+          "type": "string",
+          "maximum": 128,
+          "description": "The service name being used. Case-insensitive",
+          "enum": [
+            "PurolatorFreightExpedited",
+            "PurolatorFreightStandard"
+          ]
+        }
+      }
+    },
+    "FreightShipmentEstimate": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/BaseResponse"
+        },
+        {
+          "$ref": "#/$defs/FreightServiceId"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tariffCode": {
+              "type": "string",
+              "description": "Tariff code to indicate what rules were applied to the estimation of the shipment."
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/PackageInformationDateUOMBase"
+        },
+        {
+          "$ref": "#/$defs/ShipmentEstimateDaysBase"
+        },
+        {
+          "$ref": "#/$defs/ShipmentEstimatePriceBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "lineItemDetails",
+            "unitOfMeasurement",
+            "shipmentDate"
+          ],
+          "properties": {
+            "lineItemDetails": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LineItemResponse"
+              },
+              "minimum": 1
+            },
+            "accessorialDetails": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/AccessorialItem"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "LineItemBase": {
+      "type": "object",
+      "required": [
+        "lineItem",
+        "pieces",
+        "handlingUnit",
+        "handlingUnitType"
+      ],
+      "properties": {
+        "lineItem": {
+          "type": "integer",
+          "description": "Line item number of the corresponding shipment description."
+        },
+        "pieces": {
+          "type": "integer",
+          "description": "Number of pieces on the handling unit"
+        },
+        "handlingUnit": {
+          "type": "integer",
+          "description": "Number of handling units"
+        },
+        "handlingUnitType": {
+          "type": "string",
+          "enum": [
+            "PALLET",
+            "BOX",
+            "SKID",
+            "REEL",
+            "ROLL",
+            "BIN",
+            "BUNDLE",
+            "CAGE",
+            "UNIT",
+            "DRUM"
+          ],
+          "description": "Type of handling unit"
+        },
+        "description": {
+          "type": "string",
+          "maximum": 250,
+          "description": "Description of handling unit type"
+        },
+        "freightClass": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    },
+    "LineItemResponse": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/LineItemBase"
+        },
+        {
+          "$ref": "#/$defs/LineItemResponseMeasurements"
+        },
+        {
+          "type": "object",
+          "required": [
+            "basePrice",
+            "charge"
+          ],
+          "properties": {
+            "basePrice": {
+              "type": "number",
+              "format": "double",
+              "multipleOf": 0.01,
+              "description": ""
+            },
+            "charge": {
+              "type": "number",
+              "format": "double",
+              "multipleOf": 0.01,
+              "description": ""
+            }
+          }
+        }
+      ]
+    },
+    "LineItemResponseMeasurements": {
+      "type": "object",
+      "required": [
+        "weight",
+        "length",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "weight": {
+          "type": "integer",
+          "maximum": 1000000000000,
+          "minimum": 0,
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "description": "Weight of the line item in your selected unit of measure (kg or lbs). Weight must be greater than 0."
+        },
+        "length": {
+          "type": "integer",
+          "maximum": 1000,
+          "minimum": 0,
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "description": "Length of the line item in your selected unit of measure (in or cm). Length must be greater than 0."
+        },
+        "width": {
+          "type": "integer",
+          "maximum": 1000,
+          "minimum": 0,
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "description": "Width of the line item in your selected unit of measure (in or cm). Width must be greater than 0."
+        },
+        "height": {
+          "type": "integer",
+          "maximum": 1000,
+          "minimum": 0,
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "description": "Height of the line item in your selected unit of measure (in or cm). Height must be greater than 0."
+        }
+      }
+    },
+    "LineOfBusiness": {
+      "type": "string",
+      "enum": [
+        "Freight",
+        "Courier"
+      ],
+      "description": "Line of business which the estimate is for. Case-insensitive."
+    },
+    "PackageInformationDateUOMBase": {
+      "type": "object",
+      "properties": {
+        "unitOfMeasurement": {
+          "type": "string",
+          "enum": [
+            "Metric",
+            "Imperial"
+          ],
+          "default": "Imperial",
+          "description": "The unit of measurement used for package weight and lengths. Imperial uses pounds and inches, while metric uses kilograms and centimeters. If not provided, defaults to imperial."
+        }
+      }
+    },
+    "ShipmentDate": {
+      "type": "string",
+      "format": "date",
+      "default": "Today's Date",
+      "description": "Date of shipment. Up to 10 days in advance. Date format: YYYY-MM-DD. If not present, default to today's date."
+    },
+    "ShipmentEstimateDaysBase": {
+      "type": "object",
+      "required": [
+        "expectedDeliveryDate",
+        "estimatedTransitDays"
+      ],
+      "properties": {
+        "shipmentDate": {
+          "$ref": "#/$defs/ShipmentDate"
+        },
+        "expectedDeliveryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Estimated delivery date based on shipment date. Date format: YYYY-MM-DD"
+        },
+        "estimatedTransitDays": {
+          "type": "integer",
+          "description": "Estimated number of transit days."
+        }
+      }
+    },
+    "ShipmentEstimatePriceBase": {
+      "type": "object",
+      "required": [
+        "subTotal",
+        "taxes",
+        "totalPrice"
+      ],
+      "properties": {
+        "subTotal": {
+          "type": "number",
+          "format": "double",
+          "multipleOf": 0.01,
+          "description": "Subtotal before taxes."
+        },
+        "taxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Tax"
+          }
+        },
+        "totalPrice": {
+          "type": "number",
+          "format": "double",
+          "multipleOf": 0.01,
+          "description": "Total price of the estimate."
+        }
+      }
+    },
+    "Tax": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double",
+          "multipleOf": 0.01,
+          "description": ""
+        },
+        "type": {
+          "type": "string",
+          "description": ""
+        },
+        "description": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    }
+  }
+}

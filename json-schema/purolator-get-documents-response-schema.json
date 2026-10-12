@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-get-documents-response-schema.json",
+  "title": "GetDocumentsResponse",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-get-documents-openapi.yml#/components/schemas/GetDocumentsResponse",
+  "type": "object",
+  "required": [
+    "requestReference"
+  ],
+  "properties": {
+    "requestReference": {
+      "$ref": "#/$defs/RequestReference"
+    },
+    "bannerMessage": {
+      "type": "string"
+    },
+    "shipmentDocuments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ShipmentDocumentGroup"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ErrorItem"
+      }
+    }
+  },
+  "$defs": {
+    "DocumentEntry": {
+      "type": "object",
+      "properties": {
+        "packagePIN": {
+          "type": "string",
+          "description": "Included only for CODE128 document entries."
+        },
+        "documentType": {
+          "type": "string",
+          "enum": [
+            "CustomsInvoice",
+            "CustomsInvoiceThermal",
+            "DangerousGoodsDeclaration",
+            "DomesticBillOfLading",
+            "DomesticBillOfLadingThermal",
+            "ExpressChequeReceipt",
+            "ExpressChequeReceiptThermal",
+            "FDA2877",
+            "InternationalBillOfLading",
+            "InternationalBillOfLadingThermal",
+            "QRCode",
+            "USMCA"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "documentStatus": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "data": {
+          "type": "string",
+          "description": "Base64 document content when responseType is BASE64."
+        },
+        "code128Value": {
+          "type": "string"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Error code"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed error description in the requested language."
+        }
+      }
+    },
+    "ErrorItem": {
+      "type": "object",
+      "required": [
+        "error"
+      ],
+      "properties": {
+        "error": {
+          "$ref": "#/$defs/Error"
+        }
+      }
+    },
+    "RequestReference": {
+      "type": "string",
+      "maxLength": 36,
+      "description": "A unique identifier for the request. Can be used to match request with the response. If not provided, a random UUID is generated."
+    },
+    "ShipmentDocumentGroup": {
+      "type": "object",
+      "properties": {
+        "shipmentPIN": {
+          "type": "string"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DocumentEntry"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-pickup-courier-schema.json",
+  "title": "PickupCourier",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-pickup-openapi.yml#/components/schemas/PickupCourier",
+  "type": "object",
+  "properties": {
+    "registeredAccountNumber": {
+      "type": "string",
+      "description": "Purolator Business Account Number",
+      "maxLength": 10,
+      "minLength": 1
+    },
+    "pickupInstructions": {
+      "$ref": "#/$defs/PickupInstructions"
+    },
+    "pickupAddress": {
+      "$ref": "#/$defs/PickupAddress"
+    },
+    "shipmentSummary": {
+      "type": "array",
+      "description": "Shipment Summary Details cannot contain multiple entries with the same Destination Code.",
+      "items": {
+        "$ref": "#/$defs/ShipmentSummaryDetails"
+      }
+    },
+    "contactInfo": {
+      "$ref": "#/$defs/ContactInformation"
+    },
+    "pickupNotificationEmail": {
+      "type": "string",
+      "description": "Email address must not exceed 70 char."
+    },
+    "lineOfBusiness": {
+      "type": "string",
+      "description": "Line of business which the pickup is for. Case-insensitive.",
+      "enum": [
+        "Courier",
+        "Freight"
+      ]
+    }
+  },
+  "required": [
+    "registeredAccountNumber",
+    "lineOfBusiness",
+    "contactInfo",
+    "pickupAddress",
+    "pickupInstructions",
+    "shipmentSummary"
+  ],
+  "$defs": {
+    "ContactInformation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the contact.",
+          "minimum": 2,
+          "maxLength": 30
+        },
+        "company": {
+          "type": "string",
+          "description": "Company name.",
+          "maxLength": 30
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Expected format '14031234567', '4031234567' '416-569-5654', '(416)-569-5654'"
+        },
+        "phoneExtension": {
+          "type": "string",
+          "description": "Expected format, Only digit with length upto 10"
+        }
+      },
+      "required": [
+        "name",
+        "phoneNumber"
+      ]
+    },
+    "PickupAddress": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "array",
+          "description": "A maximum of 3 strings are allowed, with at least one line required, and each line can contain up to 35 characters.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "province": {
+          "type": "string",
+          "description": "Province cod. Case-insensitive.",
+          "enum": [
+            "AB",
+            "BC",
+            "MB",
+            "NB",
+            "NL",
+            "NS",
+            "NT",
+            "NU",
+            true,
+            "PE",
+            "QC",
+            "SK",
+            "YT"
+          ]
+        },
+        "city": {
+          "type": "string",
+          "description": "Name of the city",
+          "maxLength": 40
+        },
+        "country": {
+          "type": "string",
+          "description": "Country code. Case-insensitive.",
+          "enum": [
+            "CA"
+          ]
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Expected format L5R3T8 or L5R 3T8 and should be a valid postal code"
+        }
+      },
+      "required": [
+        "address",
+        "city",
+        "country",
+        "postalCode",
+        "province"
+      ]
+    },
+    "PickupInstructions": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "description": "Requested pickup date. Required date format \"YYYY-MM-DD\"."
+        },
+        "anyTimeAfter": {
+          "type": "string",
+          "description": "Earliest pickup time. Time format in 24-hour notation(\"HH:mm\")."
+        },
+        "untilTime": {
+          "type": "string",
+          "description": "Latest pickup time. Time format in 24-hour notation(\"HH:mm\")."
+        },
+        "measurementUnit": {
+          "type": "string",
+          "description": "The unit of measurement used for package weight and lengths. Imperial uses pounds and inches, while metric uses kilograms and centimeters. Case-insensitive.",
+          "enum": [
+            "Imperial",
+            "Metric"
+          ]
+        },
+        "totalWeight": {
+          "type": "number"
+        },
+        "pickupLocation": {
+          "type": "string",
+          "description": "Location for where to pickup the shipment. Case-insensitive.",
+          "enum": [
+            "BackDoor",
+            "Basement",
+            "BetweenDoors",
+            "Counter",
+            "Desk",
+            "FrontDesk",
+            "FrontDoor",
+            "FrontPorch",
+            "Garage",
+            "GateHouse",
+            "Kiosk",
+            "Lab",
+            "LoadingDock",
+            "Lobby",
+            "Mailbox",
+            "MailRoom",
+            "Office",
+            "OutsideDoor",
+            "PartsDepartment",
+            "Pharmacy",
+            "ProShop",
+            "Receiving",
+            "Reception",
+            "Security",
+            "ServiceCounter",
+            "Shipping",
+            "SideDoor",
+            "Switchboard",
+            "Vault",
+            "Warehouse"
+          ]
+        },
+        "additionalInstructions": {
+          "type": "string",
+          "description": "Additional pickup instructions.",
+          "maxLength": 70
+        },
+        "supplyRequestCodes": {
+          "type": "array",
+          "description": "Request supplies with pickup. Case-insensitive.",
+          "enum": [
+            "1030AMStickers",
+            "9AMStickers",
+            "AirStickers",
+            "ExpressEnvelope",
+            "ExpressPack",
+            "HeavyWeightSticker",
+            "HoldforPUSticker",
+            "InternationalBillOfLading",
+            "Labelope",
+            "Manifest",
+            "RegularBillOfLading",
+            "SaturdayServiceSticker"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "trailerAccessible": {
+          "type": "boolean",
+          "description": "Whether or not your location can accommodate a 53' trailer."
+        },
+        "loadingDockAvailable": {
+          "type": "boolean",
+          "description": "Whether or not a loading dock is available at your location."
+        },
+        "shipmentOnSkids": {
+          "type": "boolean",
+          "description": "Whether or not your shipment is on skids."
+        },
+        "numberOfSkids": {
+          "type": "integer",
+          "description": "Number of skids",
+          "minimum": 0,
+          "maximum": 9999
+        }
+      },
+      "required": [
+        "anyTimeAfter",
+        "date",
+        "pickupLocation",
+        "untilTime",
+        "measurementUnit"
+      ]
+    },
+    "ShipmentSummaryDetails": {
+      "type": "object",
+      "properties": {
+        "destinationCode": {
+          "type": "string",
+          "description": "Shipment destination code. Case-insensitive.",
+          "enum": [
+            "DOM",
+            "INTL",
+            "USA"
+          ]
+        },
+        "totalPieces": {
+          "type": "integer",
+          "description": "Number of pieces for a shipment destination",
+          "minimum": 1,
+          "maximum": 9999
+        },
+        "totalWeight": {
+          "type": "number",
+          "description": "Weight for per piece cannot exceed 150LB or 68KG"
+        },
+        "modeOfTransport": {
+          "type": "string",
+          "description": "Mode of transport. Case-insensitive.",
+          "enum": [
+            "Air",
+            "Ground",
+            "Air/Ground"
+          ]
+        }
+      },
+      "required": [
+        "destinationCode",
+        "totalPieces",
+        "totalWeight",
+        "modeOfTransport"
+      ]
+    }
+  }
+}

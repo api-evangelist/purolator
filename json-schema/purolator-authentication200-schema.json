@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/purolator/main/json-schema/purolator-authentication200-schema.json",
+  "title": "authentication200",
+  "description": " Successful Authentication ",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/purolator-token-openapi.yml#/components/schemas/authentication200",
+  "type": "object",
+  "properties": {
+    "token_type": {
+      "type": "string"
+    },
+    "expires_in": {
+      "type": "integer"
+    },
+    "access_token": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    }
+  }
+}
