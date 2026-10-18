@@ -16,6 +16,13 @@ tags:
 - Company
 - Shipping
 - Logistics
+- Couriers
+- Canada
+- Tracking
+tags_raw:
+- Company
+- Shipping
+- Logistics
 - Courier
 - Canada
 - Tracking
@@ -112,6 +119,9 @@ apis:
   humanURL: https://ship.purolator.com/developer/restapicatalogue/locator?lang=en
   baseURL: https://shipapi.purolator.com
   tags:
+  - Location
+  - Shipping
+  tags_raw:
   - Locations
   - Shipping
   properties:
